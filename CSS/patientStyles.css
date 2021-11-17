@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+table, th, tr {
+border: 1px solid black;
+width: 80%;
+}
+
+table, th, td {
+border: 1px solid black;
+border-collapse: collapse;
+}
+
+th {
+    height:80px;
+    width: 55px;
+}
+
+td {
+    height: 40px;
+}
