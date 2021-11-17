@@ -1,6 +1,15 @@
-$dbhost = "localhost";
- $dbuser = "root";
- $dbpass = "";
- $db = "ElderlyHome";
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ElderlyHome";
 
-$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+echo "Coneected Successfully";
+?>
