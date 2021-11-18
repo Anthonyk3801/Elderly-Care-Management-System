@@ -5,9 +5,10 @@
     $result = $conn->query($sql);
 ?>
 ​
-<form action="patientDoctor.php" method="POST">
+<form action="register.php" method="POST">
         <label for="role">Choose a role:</label>
         <select id="role" name="role">
+            <option value="nothing"> ---</option>
             <?php
             while($res = mysqli_fetch_array($result)) {
             ?>
@@ -21,6 +22,10 @@
     <input type="submit" value="Submit">
   
 </form>
+<?php if(isset($_POST['role'])) {
+    echo "<p>Currently Choosen Role: " . $_POST['role'] . "</p>";
+}
+?>
 ​
 <form action="home.php">
     <label for="fName">First Name</label>
@@ -53,24 +58,24 @@
     
     <br>
 ​
-    <div id='patientOnly' hidden>
+    <div id='patientOnly'>
         <label for="familyCode">Family Code:</label>
-        <input type="text" id="familyCode" name="familyCode">
+        <input type="text" id="familyCode" name="familyCode" <?php if($_POST['role'] != 'Patient') echo 'disabled' ?>>
 ​
         <br>
 ​
         <label for="EmerContactName">Emergency Contact Name:</label>
-        <input type="text" id="EmerContactName" name="EmerContactName">
+        <input type="text" id="EmerContactName" name="EmerContactName" <?php if($_POST['role'] != 'Patient') echo 'disabled' ?>>
     
         <br>
 ​
         <label for="EmerContact#">Emergency Contact #:</label>
-        <input type="text" id="EmerContact#" name="EmerContact#">
+        <input type="text" id="EmerContact#" name="EmerContact#" <?php if($_POST['role'] != 'Patient') echo 'disabled' ?>>
 ​
         <br>
 ​
         <label for="EmerContactRelation">Emergency Contact Relation:</label>
-        <input type="text" id="EmerContactRelation" name="EmerContactRelation">
+        <input type="text" id="EmerContactRelation" name="EmerContactRelation" <?php if($_POST['role'] != 'Patient') echo 'disabled' ?>>
     </div>
     
     <br>
