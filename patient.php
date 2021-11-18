@@ -1,7 +1,9 @@
 <?php
 include 'db_connection.php';
 
-$sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation FROM Patient;";
+$sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation 
+FROM Patient
+WHERE approval = 1;";
 
 $result = $conn->query($sql);
 ?>
