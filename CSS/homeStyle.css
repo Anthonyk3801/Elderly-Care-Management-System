@@ -1,0 +1,27 @@
+#login{
+  width: 30%;
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 10px;
+  font-size: 20px;
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 38%;
+}
+
+#register{
+  width: 30%;
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 10px;
+  font-size: 20px;
+  margin: 0;
+  position: absolute;
+  top: 48%;
+  left: 38%;
+}

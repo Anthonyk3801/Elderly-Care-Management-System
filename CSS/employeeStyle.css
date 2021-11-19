@@ -1,0 +1,60 @@
+label{
+  font-size: 1.4vw;
+}
+
+#searchID{
+  width: 6.6%;
+  margin-bottom: 15px;
+}
+
+#searchName{
+  width: 7.8%;
+  margin-bottom: 15px;
+}
+
+#searchRole{
+  width: 8.6%;
+  margin-bottom: 15px;
+}
+
+#searchSalary{
+  width: 7.7%;
+  margin-bottom: 15px;
+}
+
+#search{
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 8%;
+  font-size: 15px;
+}
+
+#form1{
+  margin-left: 20px;
+}
+
+#form2{
+  text-align: right;
+}
+
+#empID{
+  margin-bottom: 10px;
+  width: 10%;
+}
+
+#salary{
+  margin-bottom: 10px;
+  width: 10%;
+}
+
+#submit{
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  width: 10%;
+  font-size: 15px;
+}
