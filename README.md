@@ -15,7 +15,7 @@ according to client specifications and
 employer defined workflows. It will utilize
 everything we've learned this year.
 
-The Schedule
+### The Schedule
 This is a five-week project. Each week will
 start with a planning day to prep a week's
 worth of stories and review the previous
