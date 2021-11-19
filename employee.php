@@ -6,12 +6,6 @@ include 'db_connection.php';
 <head>
   <link rel="stylesheet" href="CSS/employeeStyle.css">
 </head>
-<table>
-  <th>ID</th>
-  <th>Name</th>
-  <th>Role</th>
-  <th>Salary</th>
-</table>
 <form action="employee.php" method="POST" id="form2">
     <label for="empID">Emp ID:</label>
     <input type="number" name="empID" id="empID" min="1"><br>
