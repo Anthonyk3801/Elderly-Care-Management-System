@@ -1,16 +1,15 @@
 <?php
 include 'db_connection.php';
 ?>
-
 <html>
 <head>
   <link rel="stylesheet" href="CSS/employeeStyle.css">
 </head>
 <form action="employee.php" method="POST" id="form2">
-    <label for="empID">Emp ID:</label>
+    <label for="empID">Emp ID</label>
     <input type="number" name="empID" id="empID" min="1"><br>
 
-    <label for="salary">New Salary:</label>
+    <label for="salary">New Salary</label>
     <input type="number" name="salary" id="salary" min="1"><br>
     <input type="submit" value="submit" id="submit">
 </form>
