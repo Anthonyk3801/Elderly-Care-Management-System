@@ -20,18 +20,20 @@ include 'db_connection.php';
 </html>
 <?php
 if(isset($_POST['role'])){
-    $role = $_POST['role'];
-    $level = $_POST['level'];
-
-    $sql = "SELECT * FROM Roles WHERE role = '$role'";
+    $sql = "SELECT * FROM Roles WHERE role = '$_POST[role]'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
+<<<<<<< HEAD
 
     if ($row["role"] == $role) {
+=======
+    
+    if ($row["role"] == $_POST['role']) {
+>>>>>>> 6869114faec5004adff1565c98dfe4178d52d3bf
         echo '<p>That role has already been set.</p>';
     } else {
         $sql = "INSERT INTO Roles (role, accessLevel)
-        VALUES ('$role', $level)";
+        VALUES ('$_POST[role]', $_POST[level])";
 
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";
