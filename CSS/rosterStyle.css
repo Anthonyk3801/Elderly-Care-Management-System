@@ -1,0 +1,18 @@
+label{
+  font-size: 1.4vw;
+  margin-left: 20px;
+}
+
+#rosterForm{
+  margin-top: 20px;
+}
+
+#submit{
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 4px 4px;
+  cursor: pointer;
+  width: 10%;
+  font-size: 13px;
+}
