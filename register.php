@@ -27,7 +27,7 @@
 }
 ?>
 ​
-<form action="home.php">
+<form action="home.php" method="POST">
     <label for="fName">First Name</label>
     <input type="text" id="fName" name="fName">
 ​
@@ -43,8 +43,8 @@
     
     <br>
 ​
-    <label for="phone#">Phone #:</label>
-    <input type="text" id="phone#" name="phone#">
+    <label for="phoneNum">Phone #:</label>
+    <input type="text" id="phoneNum" name="phoneNum">
 ​
     <br>
 ​
@@ -70,7 +70,7 @@
         <br>
 ​
         <label for="EmerContact#">Emergency Contact #:</label>
-        <input type="text" id="EmerContact#" name="EmerContact#" <?php if($_POST['role'] != 'Patient') echo 'disabled' ?>>
+        <input type="text" id="EmerContact#" name="EmerContactNum" <?php if($_POST['role'] != 'Patient') echo 'disabled' ?>>
 ​
         <br>
 ​

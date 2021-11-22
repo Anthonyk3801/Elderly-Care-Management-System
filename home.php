@@ -1,3 +1,8 @@
+<?php 
+include 'db_connection.php';
+?>
+
+
 <html>
 <head>
   <link rel="stylesheet" href="CSS/homeStyle.css">
