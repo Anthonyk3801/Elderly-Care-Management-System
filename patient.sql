@@ -1,19 +1,19 @@
 -- DROP TABLE IF EXISTS Patient;
 
 CREATE TABLE `Patient` (
-  `patientID` int(50) NOT NULL, -- patientID will have 7 digits
+  `patientID` int(50) NOT NULL, -- patientID will have 7 digits.
   `fName` text NOT NULL,
   `lName` text NOT NULL,
   `admissionDate` date NOT NULL,
-  `groupID` int(1) NOT NULL, -- groupID are 1 to 4
+  `groupID` int(1) NOT NULL, -- groupID are 1 to 4.
   `familyCode` int(3) NOT NULL,
   `emergencyContactName` varchar(50) NOT NULL,
   `emergencyContactNumber` bigint(10) DEFAULT NULL,
   `emergencyContactRelation` varchar(50) NOT NULL, -- We have Sibling and Child as of right now...
   `email` varchar(50) NOT NULL,
   `DOB` date NOT NULL,
-  `password` varchar(15) NOT NULL, -- password will be alphanumeric of 15 digits
-  `approval` int(1) NOT NULL, -- approval will be yes(1) OR no(0)
+  `password` varchar(15) NOT NULL, -- password will be alphanumeric of 15 digits.
+  `approval` int(1) NOT NULL, -- approval will be yes(1) OR no(0). Beware that some are set as 0.
   `totalDues` decimal(10,2) NOT NULL,
   `phone` bigint(10) DEFAULT NULL
 );
