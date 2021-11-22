@@ -23,7 +23,7 @@ if(isset($_POST['role'])){
     $sql = "SELECT * FROM Roles WHERE role = '$_POST[role]'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
-    
+
     if ($row["role"] == $_POST['role']) {
         echo '<p>That role has already been set.</p>';
     } else {
