@@ -13,14 +13,24 @@ if(isset($_POST['sub'])){
                                 admissionDate, approval, totalDues)
       VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', $_POST[familyCode], '$_POST[emergencyContactName]',
       '$_POST[emergencyContactNum]', '$_POST[emergencyContactRelation]', '0', '0', '1900-01-01', 0, 0)";
+      if ($conn->query($sql) === TRUE) {
+          echo "Registeration Complete!";
+      } else {
+          echo "Error: " . $sql . "<br>" . $conn->error;
+      }
 
-    
+
 
 
   }elseif($_POST['role2'] == 'Family Member'){
 
     $sql = "INSERT INTO Family_Members (fName, lName, email, phone, password, DOB, approval)
       VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', 0)";
+      if ($conn->query($sql) === TRUE) {
+          echo "Registeration Complete!";
+      } else {
+          echo "Error: " . $sql . "<br>" . $conn->error;
+      }
 
   }else{
 
@@ -28,8 +38,11 @@ if(isset($_POST['sub'])){
                                     salary, approval)
       VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', 0, '$_POST[role2]',
               0, 0)";
-
-
+              if ($conn->query($sql) === TRUE) {
+                  echo "Registeration Complete!";
+              } else {
+                  echo "Error: " . $sql . "<br>" . $conn->error;
+              }
   }
 
 }
