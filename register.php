@@ -5,6 +5,7 @@
     $result = $conn->query($sql);
 ?>
 ​
+
 <form action="register.php" method="POST">
         <label for="role">Choose a role:</label>
         <select id="role" name="role">
@@ -20,14 +21,14 @@
     <br>
 ​
     <input type="submit" value="Submit">
-  
+
 </form>
 
 ​
 <form action="home.php" method="POST">
 
     <label for="role2">Role</label>
-    <input disabled type="text" id="role2" name="role2" value="<?php echo $_POST['role'] ?>">
+    <input readonly type="text" id="role2" name="role2" value="<?php echo $_POST['role'] ?>">
 
     <br>
 
@@ -43,7 +44,7 @@
 ​
     <label for="email">Email:</label>
     <input type="email" id="email" name="email">
-    
+
     <br>
 ​
     <label for="phone">Phone #:</label>
@@ -58,7 +59,7 @@
 ​
     <label for="DOB">D.O.B:</label>
     <input type="date" id="DOB" name="DOB">
-    
+
     <br>
 ​
     <div id='patientOnly'>
@@ -69,7 +70,7 @@
 ​
         <label for="emergencyContactName">Emergency Contact Name:</label>
         <input type="text" id="emergencyContactName" name="emergencyContactName" <?php if($_POST['role'] != 'Patient') echo 'disabled' ?>>
-    
+
         <br>
 ​
         <label for="emergencyContactNum">Emergency Contact #:</label>
@@ -80,9 +81,20 @@
         <label for="emergencyContactRelation">Emergency Contact Relation:</label>
         <input type="text" id="emergencyContactRelation" name="emergencyContactRelation" <?php if($_POST['role'] != 'Patient') echo 'disabled' ?>>
     </div>
-    
+
     <br>
-​ 
+​
     <input type="submit" id="sub" value="Submit" name='sub'>
 ​
+</form>
+
+
+<br>
+
+<form action="home.php" method="POST" id="form_1">
+    <button type="submit" value="submit" id="home">Home</button>
+</form>
+
+<form action="login.php" method="POST" id="form_2">
+    <button type="submit" value="submit" id="login">Login</button>
 </form>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include 'db_connection.php';
 ?>
@@ -8,22 +8,36 @@ if(isset($_POST['sub'])){
 
   if($_POST['role2'] == 'Patient'){
 
-    $sql = "INSERT INTO Patient (fName, lName, email, phone, password, DOB, familyCode, emergencyContactName, 
-                                emergencyContactNum, emergencyContactRelation, patientID, groupID, 
+    $sql = "INSERT INTO Patient (fName, lName, email, phone, password, DOB, familyCode, emergencyContactName,
+                                emergencyContactNum, emergencyContactRelation, patientID, groupID,
                                 admissionDate, approval, totalDues)
-      VALUES ($_POST[fName], $_POST[lName], $_POST[email]', $_POST[phone], $_POST[password], $_POST[DOB], $_POST[familyCode], $_POST[emergencyContactName], 
-      $_POST[emergencyContactNum], $_POST[emergencyContactRelations], '0', '0', '1900-01-01', 0, 0)";
+      VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', $_POST[familyCode], '$_POST[emergencyContactName]',
+      '$_POST[emergencyContactNum]', '$_POST[emergencyContactRelation]', '0', '0', '1900-01-01', 0, 0)";
 
-  }elseif($_POST['role2'] == 'Family_Members'){
+      if($conn->query($sql) === TRUE){
+          echo "success";
+      }else{
+          echo "Error" . $conn->error;
+      }
+
+
+  }elseif($_POST['role2'] == 'Family Member'){
 
     $sql = "INSERT INTO Family_Members (fName, lName, email, phone, password, DOB, approval)
-      VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]')";
+      VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', 0)";
 
   }else{
 
-    $sql = "INSERT INTO Employees (fName, lName, email, phone, password, DOB, role, 
-                                    employeeID, salary, approval)
-      VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', '$_POST[role2]')";
+    $sql = "INSERT INTO Employees (fName, lName, email, phone, password, DOB, employeeID, role,
+                                    salary, approval)
+      VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', 0, '$_POST[role2]',
+              0, 0)";
+
+              if($conn->query($sql) === TRUE){
+                  echo "success";
+              }else{
+                  echo "Error" . $conn->error;
+              }
   }
 
 }
@@ -42,4 +56,3 @@ if(isset($_POST['sub'])){
     <button type="submit" value="submit" id="register">Register</button>
 </form>
 </html>
-
