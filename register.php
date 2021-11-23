@@ -27,7 +27,7 @@
 <form action="home.php" method="POST">
 
     <label for="role2">Role</label>
-    <input disabled type="text" id="role2" name="role2" value="<?php echo $_POST['role'] ?>">
+    <input readonly type="text" id="role2" name="role2" value="<?php echo $_POST['role'] ?>">
 
     <br>
 

@@ -14,6 +14,12 @@ if(isset($_POST['sub'])){
       VALUES ($_POST[fName], $_POST[lName], $_POST[email]', $_POST[phone], $_POST[password], $_POST[DOB], $_POST[familyCode], $_POST[emergencyContactName], 
       $_POST[emergencyContactNum], $_POST[emergencyContactRelations], '0', '0', '1900-01-01', 0, 0)";
 
+    if ($conn->query($sql) === TRUE) {
+      echo "Successful Entry";
+    } else {
+      echo "Error inserting record: " . $conn->error;
+    }
+
   }elseif($_POST['role2'] == 'Family_Members'){
 
     $sql = "INSERT INTO Family_Members (fName, lName, email, phone, password, DOB, approval)
