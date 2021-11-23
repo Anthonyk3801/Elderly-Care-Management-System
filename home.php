@@ -14,11 +14,7 @@ if(isset($_POST['sub'])){
       VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', $_POST[familyCode], '$_POST[emergencyContactName]',
       '$_POST[emergencyContactNum]', '$_POST[emergencyContactRelation]', '0', '0', '1900-01-01', 0, 0)";
 
-      if($conn->query($sql) === TRUE){
-          echo "success";
-      }else{
-          echo "Error" . $conn->error;
-      }
+    
 
 
   }elseif($_POST['role2'] == 'Family Member'){
@@ -33,11 +29,7 @@ if(isset($_POST['sub'])){
       VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', 0, '$_POST[role2]',
               0, 0)";
 
-              if($conn->query($sql) === TRUE){
-                  echo "success";
-              }else{
-                  echo "Error" . $conn->error;
-              }
+
   }
 
 }
