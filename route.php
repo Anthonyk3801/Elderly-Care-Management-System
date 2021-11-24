@@ -7,7 +7,7 @@ if(isset($_POST['login'])){
     $check = false;
     $table = '';
     $sql="Select * FROM Patient 
-    WHERE LOWER(email) = '$email' AND password = '$_POST[password]';";
+    WHERE LOWER(email) = '$email' AND password = '$_POST[password]' AND approval = 1;";
 
     $result = $conn->query($sql);
 
@@ -22,7 +22,7 @@ if(isset($_POST['login'])){
 
     }
     $sql="Select * FROM FamilyMember 
-    WHERE LOWER(email) = '$email' AND password = '$_POST[password]';";
+    WHERE LOWER(email) = '$email' AND password = '$_POST[password]' AND approval = 1;";
 
     $result = $conn->query($sql);
 
@@ -37,7 +37,7 @@ if(isset($_POST['login'])){
 
     }
     $sql="Select * FROM Employee
-    WHERE LOWER(email) = '$email' AND password = '$_POST[password]';";
+    WHERE LOWER(email) = '$email' AND password = '$_POST[password]' AND approval = 1;";
 
     $result = $conn->query($sql);
 
@@ -61,11 +61,11 @@ if(isset($_POST['login'])){
             $sql = "Select role,employeeID from Employee where LOWER(email) = '$email';";
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
-            $_SESSION['role'] = $row['role'];
+            $_SESSION['role'] = strtolower($row['role']);
             $_SESSION['id'] = $row['employeeID'];
 
             $role = $_SESSION['role'];
-            $sql = "Select accessLevel from Roles where role = '$role';";
+            $sql = "Select accessLevel from Roles where LOWER(role) = '$role';";
             $result = $conn->query($sql);
             $res = $result->fetch_assoc();
             $_SESSION['level'] = $res['accessLevel'];
@@ -93,8 +93,20 @@ if(isset($_POST['login'])){
         echo "Role: " . $_SESSION['role'] . "<br>";
         if($table == 'Patient' || $table == 'Employee') echo "ID: " . $_SESSION['id'];
         */
-    }   
-
+    } 
+    
+    if($_SESSION['level'] == 1 || $_SESSION['level'] == 2){
+        header('location:roster.php');
+    }elseif($_SESSION['level'] == 3){
+        header('location:doctorHome.php');
+    }elseif($_SESSION['level'] == 4){
+        header('location:caregiverHome.php');
+    }elseif($_SESSION['level'] == 5){
+        header('location:patientHome.php');
+    }elseif($_SESSION['level'] == 6){
+        header('location:familyMemberHome.php');
+    }
+    
 }
 
 ?>
