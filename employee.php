@@ -32,6 +32,30 @@ include 'db_connection.php';
 </form>
 </html>
 <?php
+$search = $_POST['search'];
+$sql = "SELECT *
+FROM Employee
+WHERE employeeID LIKE '%$search%'";
+$result = $conn->query($sql);
+
+$search = $_POST['search'];
+$sql = "SELECT *
+FROM Employee
+WHERE fname LIKE '%$search%' OR lName LIKE '%$search%'";
+$result = $conn->query($sql);
+
+$search = $_POST['search'];
+$sql = "SELECT *
+FROM Employee
+WHERE role LIKE '%$search%'";
+$result = $conn->query($sql);
+
+$search = $_POST['search'];
+$sql = "SELECT *
+FROM Employee
+WHERE salary LIKE '%$search%'";
+$result = $conn->query($sql);
+
 if(isset($_POST['empID'])){
     $empID = $_POST['empID'];
     $salary = $_POST['salary'];
