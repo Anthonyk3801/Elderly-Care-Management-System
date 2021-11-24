@@ -14,46 +14,22 @@ include 'db_connection.php';
     <input type="submit" value="submit" id="submit">
 </form>
 <form action="employee.php" method="POST" id="form1">
-    <label for="search">Search Emp ID:</label>
-    <input type="search" name="search" id="searchID">
-    <input type="submit" value="search" id="search"><br>
-
-    <label for="search">Search Name:</label>
-    <input type="search" name="search" id="searchName">
-    <input type="submit" value="search" id="search"><br>
-
-    <label for="search">Search Role:</label>
-    <input type="search" name="search" id="searchRole">
-    <input type="submit" value="search" id="search"><br>
-
-    <label for="search">Search Salary:</label>
-    <input type="search" name="search" id="searchSalary">
-    <input type="submit" value="search" id="search">
+  Search: <input type="text" name="search"><br>
+  Column: <select name="column">
+          <option value="empID">Emp ID</option>
+	        <option value="name">Name</option>
+	        <option value="role">Role</option>
+          <option value="salary">Salary</option>
+	        </select><br>
+  <input type="submit" value="search" id="search">
 </form>
 </html>
 <?php
 $search = $_POST['search'];
+$column = $_POST['column'];
 $sql = "SELECT *
 FROM Employee
-WHERE employeeID LIKE '%$search%'";
-$result = $conn->query($sql);
-
-$search = $_POST['search'];
-$sql = "SELECT *
-FROM Employee
-WHERE fname LIKE '%$search%' OR lName LIKE '%$search%'";
-$result = $conn->query($sql);
-
-$search = $_POST['search'];
-$sql = "SELECT *
-FROM Employee
-WHERE role LIKE '%$search%'";
-$result = $conn->query($sql);
-
-$search = $_POST['search'];
-$sql = "SELECT *
-FROM Employee
-WHERE salary LIKE '%$search%'";
+WHERE $column LIKE '%$search%'";
 $result = $conn->query($sql);
 
 if(isset($_POST['empID'])){
@@ -61,7 +37,7 @@ if(isset($_POST['empID'])){
     $salary = $_POST['salary'];
 };
 if (isset($_POST['empID'])){
-  $sql = "INSERT INTO Employee (employeeID, fName, lName, role, salary, email, phone, DOB, password, approval)
-  VALUES ('$empID', '$fName', '$lName', '$role', '$salary', '$email', '$phone', '$DOB', '$password', '$approval')";
+  $sql = "UPDATE Employee salary
+  SET salary='salary'";
 }
 ?>
