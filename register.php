@@ -1,5 +1,6 @@
 <?php
     include 'db_connection.php';
+    include 'base.html';
     $sql = "SELECT * FROM Roles;";
 
     $result = $conn->query($sql);
