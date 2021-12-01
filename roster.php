@@ -1,6 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION['level'])) header('location:home.php');
+/*if(!isset($_SESSION['level'])) header('location:home.php');
+if($_GET['error'] == 2) echo "You are not authorized for that page";
+*/
 include 'db_connection.php';
 ?>
 <html>
