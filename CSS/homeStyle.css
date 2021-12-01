@@ -25,3 +25,11 @@
   top: 48%;
   left: 38%;
 }
+
+body {
+  background-color: black;
+}
+
+.header {
+  background-color: red;
+}

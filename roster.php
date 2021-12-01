@@ -10,17 +10,43 @@ include 'db_connection.php';
   <link rel="stylesheet" href="CSS/rosterStyle.css">
 </head>
 <form action="roster.php" method="POST" id="rosterForm">
-    <label for="date">Date</label>
-    <input type="date" name="date" id="date">
-    <input type="submit" value="submit" id="submit">
+    Date: <input type="date" name="search"><br>
+    <input type="submit" value="search" id="search">
 </form>
-</html>
+
 <?php
-if(isset($_POST['date'])){
-    $date = $_POST['date'];
-};
-if (isset($_POST['date'])){
-  $sql = "INSERT INTO Roster (date, superVisorID, doctorID, careGiver1, careGiver2, careGiver3, careGiver4, groupID)
-  VALUES ('$date', '$superVisorID', '$doctorID', '$careGiver1', '$careGiver2', '$careGiver3', '$careGiver4', '$groupID')";
+if(isset($_POST['search'])){
+$search = $_POST['search'];
+$sql = "SELECT *
+FROM Roster
+WHERE date = '$search'";
+$result = $conn->query($sql);
+
+echo "<table width='30%' border=0>";
+
+  echo "<th>Date</th>";
+  echo "<th>Supervisor</th>";
+  echo "<th>Doctor</th>";
+  echo "<th>Caregiver1</th>";
+  echo "<th>Caregiver2</th>";
+  echo "<th>Caregiver3</th>";
+  echo "<th>Caregiver4</th>";
+
+        echo "</tr>";
+
+while($res = mysqli_fetch_array($result)) {
+    echo "<tr>";
+    echo "<td>".$res['date']."</td>";
+    echo "<td>".$res['superVisorID']."</td>";
+    echo "<td>".$res['doctorID']."</td>";
+    echo "<td>".$res['careGiver1']."</td>";
+    echo "<td>".$res['careGiver2']."</td>";
+    echo "<td>".$res['careGiver3']."</td>";
+    echo "<td>".$res['careGiver4']."</td";
+
+}
+
+echo "</table>";
 }
 ?>
+</html>

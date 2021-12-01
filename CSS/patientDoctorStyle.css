@@ -4,11 +4,11 @@ table, th, td{
 
 table{
   border: 2px solid black;
-  width: 30%;
+  width: 20%;
   border-collapse: collapse;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 td{
@@ -37,8 +37,8 @@ th, td{
   color: white;
   border: none;
   padding: 10px 4px;
-  margin-right: 10%;
-  margin-top: 15px;
+  margin-right: 5%;
+  margin-top: 5px;
   cursor: pointer;
   width: 10%;
   font-size: 13px;
