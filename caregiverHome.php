@@ -11,6 +11,15 @@ include 'db_connection.php';
 echo "Caregiver Home <br>";
 
 $date = date('Y-m-d');
+$group = 0;
+
+$sql = "SELECT * FROM Roster Where date = '$date';";
+$result = $conn->query($sql);
+$res = $result->fetch_assoc();
+if($res['careGiver1'] == $_SESSION['id']) $group = 1;
+if($res['careGiver2'] == $_SESSION['id']) $group = 2;
+if($res['careGiver3'] == $_SESSION['id']) $group = 3;
+if($res['careGiver4'] == $_SESSION['id']) $group = 4;
 
 if(isset($_POST['change'])){
     $arr = explode(" ",$_POST['change']);
@@ -46,13 +55,13 @@ $sql="Select * FROM PatientChecklist
             }
         }
         $sql="Select * FROM PatientChecklist pc INNER JOIN Patient p ON pc.patientID=p.patientID
-        WHERE pc.date = '$date';";
+        WHERE pc.date = '$date' AND p.groupID = $group;";
 
         $result = $conn->query($sql);
         
     }else {
         $sql="Select * FROM PatientChecklist pc INNER JOIN Patient p ON pc.patientID=p.patientID
-        WHERE pc.date = '$date';";
+        WHERE pc.date = '$date' AND p.groupID = $group;";
 
         $result = $conn->query($sql);
     }
