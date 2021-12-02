@@ -86,7 +86,41 @@ $sql="Select * FROM PatientChecklist
             </tr>
             <?php 
         
-            while($res = mysqli_fetch_array($result)) {         
+            while($res = mysqli_fetch_array($result)) {  
+                $sql="SELECT * FROM DoctorAppointments WHERE patientID = $res[patientID] ORDER BY date DESC LIMIT 1";
+                $newresult = $conn->query($sql);
+                $row = $newresult->fetch_assoc();
+                $morn = strtoupper($row['morningMed']);
+                $lunch = strtoupper($row['lunchMed']);
+                $night = strtoupper($row['nightMed']);
+                if(strlen($morn) == 0) {
+                    $sql="UPDATE PatientChecklist SET morningMedCheck = 1 WHERE date='$date' AND patientID=$res[patientID];";
+                    if ($conn->query($sql) === TRUE) {
+                        //echo "Update Success<br>";
+                        $morn = "NONE";
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                };
+                if(strlen($lunch) == 0) {
+                    $sql="UPDATE PatientChecklist SET lunchMedCheck = 1 WHERE date='$date' AND patientID=$res[patientID];";
+                    if ($conn->query($sql) === TRUE) {
+                        //echo "Update Success<br>";
+                        $lunch = "NONE";
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                };
+                if(strlen($night) == 0){
+                    $sql="UPDATE PatientChecklist SET nightMedCheck = 1 WHERE date='$date' AND patientID=$res[patientID];";
+                    if ($conn->query($sql) === TRUE) {
+                        //echo "Update Success<br>";
+                        $night = "NONE";
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                };
+                
                 echo "<tr>";
                 echo "<td>".$res['fName']. " " . $res['lName'] . "</td>";
                 if($res['breakfast'] == 0){
@@ -98,10 +132,10 @@ $sql="Select * FROM PatientChecklist
                 }
                 if($res['morningMedCheck'] == 0){
                     ?>
-                    <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' morningMedCheck'?>">O</button></td>
+                    <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' morningMedCheck'?>"><?php echo $morn?></button></td>
                 <?php
                 }else{
-                    echo "<td>&#10004;</td>";
+                    echo "<td>" . $morn . " " . "&#10004;</td>";
                 }    
                 if($res['lunch'] == 0){
                     ?>
@@ -112,10 +146,10 @@ $sql="Select * FROM PatientChecklist
                 } 
                 if($res['lunchMedCheck'] == 0){
                     ?>
-                    <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' lunchMedCheck'?>">O</button></td>
+                    <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' lunchMedCheck'?>"><?php echo $lunch?></button></td>
                 <?php
                 }else{
-                    echo "<td>&#10004;</td>";
+                    echo "<td>" . $lunch . " " . "&#10004;</td>";
                 } 
                 if($res['dinner'] == 0){
                     ?>
@@ -126,10 +160,10 @@ $sql="Select * FROM PatientChecklist
                 } 
                 if($res['nightMedCheck'] == 0){
                     ?>
-                    <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' nightMedCheck'?>">O</button></td>
+                    <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' nightMedCheck'?>"><?php echo $night?></button></td>
                 <?php
                 }else{
-                    echo "<td>&#10004;</td>";
+                    echo "<td>" . $night . " " . "&#10004;</td>";
                 }    
             }
             ?>
