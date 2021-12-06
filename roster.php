@@ -5,10 +5,25 @@ if($_GET['error'] == 2) echo "You are not authorized for that page";
 */
 include 'db_connection.php';
 ?>
-<html>
-<head>
-  <link rel="stylesheet" href="CSS/rosterStyle.css">
-</head>
+
+<?php //TEMPLATES
+    include 'templates/header.html';
+    //include 'templates/alert-message-before-login.html';
+    include 'templates/nav-bar.html';
+    include 'templates/main-grid-content-1column.html';
+    //include 'templates/main-grid-content-2columns.html';
+    //include 'templates/side-bar.html';
+    //include 'templates/side-bar-hidden.html';
+    include 'templates/main-content.html';
+    //include 'templates/end-main-content.html';
+    //include 'templates/footer.html';
+?>
+  <!-- <link rel="stylesheet" href="CSS/rosterStyle.css"> -->
+
+<h1>Roster</h1>
+<hr>
+<br>
+
 <form action="roster.php" method="POST" id="rosterForm">
     Date: <input type="date" name="date" id="date"><br>
     <input type="submit" value="search" name="search" id="search">
@@ -97,4 +112,8 @@ echo "<table width='30%' border=0>";
 echo "</table>";
 }
 ?>
-</html>
+
+<?php // TEMPLATES
+  include 'templates/end-main-content.html';
+  include 'templates/footer.html';
+?>
