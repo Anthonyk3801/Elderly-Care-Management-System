@@ -6,3 +6,23 @@ if(isset($_SESSION['level'])){
 };
 */
 ?>
+
+<?php //TEMPLATES
+    include 'templates/header.html';
+    include 'templates/alert-message-before-login.html';
+    include 'templates/nav-bar.html';
+    include 'templates/main-grid-content-1column.html';
+    //include 'templates/main-grid-content-2columns.html';
+    //include 'templates/side-bar.html';
+    //include 'templates/side-bar-hidden.html';
+    include 'templates/main-content.html';
+    //include 'templates/end-main-content.html';
+    //include 'templates/footer.html';
+?>
+
+<h1>Admin Report</h1>
+
+<?php // TEMPLATES
+  include 'templates/end-main-content.html';
+  include 'templates/footer.html';
+?>

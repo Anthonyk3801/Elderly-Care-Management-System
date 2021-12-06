@@ -8,6 +8,21 @@ if(isset($_SESSION['level'])){
   include 'db_connection.php';
 ?>
 
+<?php //TEMPLATES
+    include 'templates/header.html';
+    include 'templates/alert-message-before-login.html';
+    include 'templates/nav-bar.html';
+    include 'templates/main-grid-content-1column.html';
+    //include 'templates/main-grid-content-2columns.html';
+    //include 'templates/side-bar.html';
+    //include 'templates/side-bar-hidden.html';
+    include 'templates/main-content.html';
+    //include 'templates/end-main-content.html';
+    //include 'templates/footer.html';
+?>
+
+<h1>Additional Information of Patient</h1>
+
 <form action="patientInformation.php" method="POST">
 
   <label for="patientID">Patient ID: </label>
@@ -51,3 +66,8 @@ if(isset($_SESSION['level'])){
 
   <input type="submit" id="sub2" value="Submit">
 </form>
+
+<?php // TEMPLATES
+  include 'templates/end-main-content.html';
+  include 'templates/footer.html';
+?>
