@@ -7,10 +7,25 @@ if(isset($_SESSION['level'])){
 */
 include 'db_connection.php';
 ?>
-<html>
-<head>
-  <link rel="stylesheet" href="CSS/employeeStyle.css">
-</head>
+
+
+<?php //TEMPLATES
+    include 'templates/header.html';
+    //<link rel="stylesheet" href="CSS/employeeStyle.css"> may need this file added to the header
+    //include 'templates/alert-message-before-login.html';
+    include 'templates/nav-bar.html';
+    include 'templates/main-grid-content-1column.html';
+    //include 'templates/main-grid-content-2columns.html';
+    //include 'templates/side-bar.html';
+    //include 'templates/side-bar-hidden.html';
+    include 'templates/main-content.html';
+    //include 'templates/end-main-content.html';
+    //include 'templates/footer.html';
+?>
+
+<h1>Employees</h1>
+<hr>
+<br>
 <form action="employee.php" method="POST" id="form2">
     <label for="empID">Emp ID</label>
     <input type="number" name="empID" id="empID" min="1"><br>
@@ -29,6 +44,7 @@ include 'db_connection.php';
 	        </select><br>
   <input type="submit" value="search" id="search">
 </form>
+
 
 <?php
 if(isset($_POST['search'])){
@@ -74,4 +90,8 @@ if (isset($_POST['empID'])){
   }
 }
 ?>
-</html>
+
+<?php // TEMPLATES
+  include 'templates/end-main-content.html';
+  include 'templates/footer.html';
+?>
