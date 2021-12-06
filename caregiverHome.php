@@ -8,8 +8,6 @@ if($_GET['error'] == 2) echo "You are not authorized for that page";
 */
 include 'db_connection.php';
 
-echo "Caregiver Home <br>";
-
 $date = date('Y-m-d');
 $group = 0;
 
@@ -27,7 +25,7 @@ if(isset($_POST['change'])){
     $column = $arr[1];
 
     $sql = "UPDATE PatientChecklist SET $column = 1 WHERE patientID = $id AND date = '$date';";
-    
+
     if ($conn->query($sql) === TRUE) {
         echo "Update Successful.";
     } else {
@@ -36,7 +34,7 @@ if(isset($_POST['change'])){
 };
 
 
-$sql="Select * FROM PatientChecklist 
+$sql="Select * FROM PatientChecklist
     WHERE date = '$date';";
 
     $result = $conn->query($sql);
@@ -45,7 +43,7 @@ $sql="Select * FROM PatientChecklist
     if ( 0===$cnt ) {
         $sql = "SELECT * FROM Patient WHERE approval = 1";
         $newresult = $conn->query($sql);
-        while($res = mysqli_fetch_array($newresult)) {         
+        while($res = mysqli_fetch_array($newresult)) {
             $sql = "Insert into PatientChecklist (patientID, date, morningMedCheck, lunchMedCheck, nightMedCheck, breakfast, lunch, dinner)
             Values ($res[patientID], '$date', 0, 0, 0, 0, 0, 0);";
             if ($conn->query($sql) === TRUE) {
@@ -58,7 +56,7 @@ $sql="Select * FROM PatientChecklist
         WHERE pc.date = '$date' AND p.groupID = $group;";
 
         $result = $conn->query($sql);
-        
+
     }else {
         $sql="Select * FROM PatientChecklist pc INNER JOIN Patient p ON pc.patientID=p.patientID
         WHERE pc.date = '$date' AND p.groupID = $group;";
@@ -67,26 +65,39 @@ $sql="Select * FROM PatientChecklist
     }
 ?>
 
-<html>
-    <head>
-        <link rel="stylesheet" href="CSS/patientStyles.css">
-    </head>
-    <body>
+<?php //TEMPLATES
+    include 'templates/header.html';
+    //include 'templates/alert-message-before-login.html';
+    include 'templates/nav-bar.html';
+    include 'templates/main-grid-content-1column.html';
+    //include 'templates/main-grid-content-2columns.html';
+    //include 'templates/side-bar.html';
+    //include 'templates/side-bar-hidden.html';
+    include 'templates/main-content.html';
+    //include 'templates/end-main-content.html';
+    //include 'templates/footer.html';
+?>
+<!-- <link rel="stylesheet" href="CSS/patientStyles.css"> -->
+
+<h1>Caregiver's Home</h1>
+<hr>
+<br>
+
         <form action="caregiverHome.php" id="form1" method="post">
-    <table width='30%' border=0>
-                
-                <th>Patient Name</th>
-                <th>Breakfast</th>
-                <th>Morning Med</th>
-                <th>Lunch</th>
-                <th>Lunch Med</th>
-                <th>Dinner</th>
-                <th>Night Med</th>
-                
+          <table width=30% border=1>
+            <tr>
+              <th>Patient Name</th>
+              <th>Breakfast</th>
+              <th>Morning Med</th>
+              <th>Lunch</th>
+              <th>Lunch Med</th>
+              <th>Dinner</th>
+              <th>Night Med</th>
             </tr>
-            <?php 
-        
-            while($res = mysqli_fetch_array($result)) {  
+
+            <?php
+
+            while($res = mysqli_fetch_array($result)) {
                 $sql="SELECT * FROM DoctorAppointments WHERE patientID = $res[patientID] ORDER BY date DESC LIMIT 1";
                 $newresult = $conn->query($sql);
                 $row = $newresult->fetch_assoc();
@@ -120,7 +131,7 @@ $sql="Select * FROM PatientChecklist
                         echo "Error: " . $sql . "<br>" . $conn->error;
                     }
                 };
-                
+
                 echo "<tr>";
                 echo "<td>".$res['fName']. " " . $res['lName'] . "</td>";
                 if($res['breakfast'] == 0){
@@ -136,38 +147,41 @@ $sql="Select * FROM PatientChecklist
                 <?php
                 }else{
                     echo "<td>" . $morn . " " . "&#10004;</td>";
-                }    
+                }
                 if($res['lunch'] == 0){
                     ?>
                     <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' lunch'?>">O</button></td>
                 <?php
                 }else{
                     echo "<td>&#10004;</td>";
-                } 
+                }
                 if($res['lunchMedCheck'] == 0){
                     ?>
                     <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' lunchMedCheck'?>"><?php echo $lunch?></button></td>
                 <?php
                 }else{
                     echo "<td>" . $lunch . " " . "&#10004;</td>";
-                } 
+                }
                 if($res['dinner'] == 0){
                     ?>
                     <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' dinner'?>">O</button></td>
                 <?php
                 }else{
                     echo "<td>&#10004;</td>";
-                } 
+                }
                 if($res['nightMedCheck'] == 0){
                     ?>
                     <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' nightMedCheck'?>"><?php echo $night?></button></td>
                 <?php
                 }else{
                     echo "<td>" . $night . " " . "&#10004;</td>";
-                }    
+                }
             }
             ?>
      </table>
      </form>
-    </body>
-</html>
+
+     <?php // TEMPLATES
+       include 'templates/end-main-content.html';
+       include 'templates/footer.html';
+     ?>
