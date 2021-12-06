@@ -4,11 +4,20 @@
         echo "<P>Incorrect Email or Password.</p>";
     }
 ?>
-<html>
-    <head>
 
-    </head>
-    <body>
+<?php //TEMPLATES
+    include 'templates/header.html';
+    include 'templates/alert-message-before-login.html';
+    include 'templates/nav-bar.html';
+    include 'templates/main-grid-content-1column.html';
+    //include 'templates/main-grid-content-2columns.html';
+    //include 'templates/side-bar.html';
+    //include 'templates/side-bar-hidden.html';
+    include 'templates/main-content.html';
+    //include 'templates/end-main-content.html';
+    //include 'templates/footer.html';
+?>
+
         <form action="route.php" method="post">
             <label for="email">Email: </label>
             <input type="text" name="email" id="email" required>
@@ -16,6 +25,9 @@
             <input type="text" name="password" id="password" required>
             <input type="submit" name="login" id="login" value="LOGIN">
         </form>
-    </body>
 
-</html>
+
+<?php // TEMPLATES
+  include 'templates/end-main-content.html';
+  include 'templates/footer.html';
+?>

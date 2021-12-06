@@ -1,3 +1,16 @@
+<?php //TEMPLATES
+    include 'templates/header.html';
+    include 'templates/alert-message-before-login.html';
+    include 'templates/nav-bar.html';
+    include 'templates/main-grid-content-1column.html';
+    //include 'templates/main-grid-content-2columns.html';
+    //include 'templates/side-bar.html';
+    //include 'templates/side-bar-hidden.html';
+    include 'templates/main-content.html';
+    //include 'templates/end-main-content.html';
+    //include 'templates/footer.html';
+?>
+
 <h1>Terms of Use</h1>
 <h2>Agreement Between User and Elderly Care Management System</h2>
 <p>The Elderly Care Management System Web Site is comprised of various Web pages operated by Elderly Care Management System.</p>
@@ -89,3 +102,8 @@ Elderly Care Management System does not claim ownership of the materials you pro
 <p>NOTICES AND PROCEDURE FOR MAKING CLAIMS OF COPYRIGHT INFRINGEMENT</p>
 
 <p>Pursuant to Title 17, United States Code, Section 512(c)(2), notifications of claimed copyright infringement under United States copyright law should be sent to Service Provider's Designated Agent. ALL INQUIRIES NOT RELEVANT TO THE FOLLOWING PROCEDURE WILL RECEIVE NO RESPONSE. See Notice and Procedure for Making Claims of Copyright Infringement.</p>
+
+<?php // TEMPLATES
+  include 'templates/end-main-content.html';
+  include 'templates/footer.html';
+?>

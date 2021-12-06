@@ -1,11 +1,22 @@
 <?php
     include 'db_connection.php';
-    include 'base.html';
     $sql = "SELECT * FROM Roles;";
 
     $result = $conn->query($sql);
 ?>
-​
+
+<?php //TEMPLATES
+    include 'templates/header.html';
+    include 'templates/alert-message-before-login.html';
+    include 'templates/nav-bar.html';
+    include 'templates/main-grid-content-1column.html';
+    //include 'templates/main-grid-content-2columns.html';
+    //include 'templates/side-bar.html';
+    //include 'templates/side-bar-hidden.html';
+    include 'templates/main-content.html';
+    //include 'templates/end-main-content.html';
+    //include 'templates/footer.html';
+?>
 
 <form action="register.php" method="POST">
         <label for="role">Choose a role:</label>
@@ -19,9 +30,8 @@
             }
             ?>
         </select>
-    <br>
-​
-    <input type="submit" value="Submit">
+
+        <input type="submit" value="Submit">
 
 </form>
 
@@ -89,13 +99,7 @@
 ​
 </form>
 
-
-<br>
-
-<form action="home.php" method="POST" id="form_1">
-    <button type="submit" value="submit" id="home">Home</button>
-</form>
-
-<form action="login.php" method="POST" id="form_2">
-    <button type="submit" value="submit" id="login">Login</button>
-</form>
+<?php // TEMPLATES
+  include 'templates/end-main-content.html';
+  include 'templates/footer.html';
+?>

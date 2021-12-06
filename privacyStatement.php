@@ -1,3 +1,16 @@
+<?php //TEMPLATES
+    include 'templates/header.html';
+    include 'templates/alert-message-before-login.html';
+    include 'templates/nav-bar.html';
+    include 'templates/main-grid-content-1column.html';
+    //include 'templates/main-grid-content-2columns.html';
+    //include 'templates/side-bar.html';
+    //include 'templates/side-bar-hidden.html';
+    include 'templates/main-content.html';
+    //include 'templates/end-main-content.html';
+    //include 'templates/footer.html';
+?>
+
 <h1>Privacy Statement</h1>
 <p>Elderly Care Management System is committed to protecting your privacy and developing technology that gives you the most powerful and safe online experience. This Statement of Privacy applies to the Elderly Care Management System Web site and governs data collection and usage. By using the Elderly Care Management System website, you consent to the data practices described in this statement.</p>
 
@@ -36,3 +49,8 @@
 
 <h2>Contact Information</h2>
 <p>Elderly Care Management System welcomes your comments regarding this Statement of Privacy. If you believe that Elderly Care Management System has not adhered to this Statement, please contact Elderly Care Management System at <a href="mailto:notify@ElderlyCareManagementSystem.com">notify@ElderlyCareManagementSystem.com</a>. We will use commercially reasonable efforts to promptly determine and remedy the problem.</p>
+
+<?php // TEMPLATES
+  include 'templates/end-main-content.html';
+  include 'templates/footer.html';
+?>
