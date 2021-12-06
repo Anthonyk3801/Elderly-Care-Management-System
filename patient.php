@@ -7,7 +7,7 @@ if(isset($_SESSION['level'])){
 */
 include 'db_connection.php';
 if(!isset($_POST['option'])){
-    $sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation 
+    $sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation
     FROM Patient
     WHERE approval = 1;";
 
@@ -15,7 +15,7 @@ if(!isset($_POST['option'])){
 }
 if(isset($_POST['option'])){
     if($_POST['option'] == 'id'){
-        $sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation 
+        $sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation
         FROM Patient
         WHERE approval = 1 AND patientID = $_POST[search];";
 
@@ -29,7 +29,7 @@ if(isset($_POST['option'])){
             $lname = strtoupper($lname);
             echo $fname . " " . $lname;
 
-            $sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation 
+            $sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation
                     FROM Patient
                     WHERE approval = 1 AND upper(fName) = '$fname' AND upper(lName) = '$lname';";
 
@@ -37,29 +37,29 @@ if(isset($_POST['option'])){
         }else{
             $fname = $_POST['search'];
             $fname = strtoupper($fname);
-            $sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation 
+            $sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation
                     FROM Patient
                     WHERE approval = 1 AND upper(fName) = '$fname';";
 
             $result = $conn->query($sql);
         }
-        
-        
+
+
     }elseif($_POST['option'] == 'dob'){
-        $sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation 
+        $sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation
         FROM Patient
         WHERE approval = 1 AND DOB = '$_POST[search]';";
 
         $result = $conn->query($sql);
     }elseif($_POST['option'] == 'admission'){
-        $sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation 
+        $sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation
         FROM Patient
         WHERE approval = 1 AND admissionDate = '$_POST[search]';";
 
         $result = $conn->query($sql);
     }
     if(isset($_POST['cancel'])){
-        $sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation 
+        $sql = "SELECT patientID,fName,lName,DOB,admissionDate,emergencyContactName,emergencyContactNumber,emergencyContactRelation
         FROM Patient
         WHERE approval = 1;";
 
@@ -68,11 +68,25 @@ if(isset($_POST['option'])){
 }
 
 ?>
-<html>
-<head>
-  <link rel="stylesheet" href="CSS/patientStyles.css">
-</head>
-    <body>
+
+<?php //TEMPLATES
+    include 'templates/header.html';
+    //include 'templates/alert-message-before-login.html';
+    include 'templates/nav-bar.html';
+    include 'templates/main-grid-content-1column.html';
+    //include 'templates/main-grid-content-2columns.html';
+    //include 'templates/side-bar.html';
+    //include 'templates/side-bar-hidden.html';
+    include 'templates/main-content.html';
+    //include 'templates/end-main-content.html';
+    //include 'templates/footer.html';
+?>
+  <!-- <link rel="stylesheet" href="CSS/patientStyles.css"> -->
+
+  <h1>Patients</h1>
+  <hr>
+  <br>
+
         <form action="patient.php" method="POST">
             <label for="option">Search Option: </label>
             <select name="option" id="option">
@@ -89,7 +103,7 @@ if(isset($_POST['option'])){
 
             <input type="submit" id="enter" value="Submit">
         </form>
-        
+
         <p>Format dates: YYYY-MM-DD</p>
 
         <form action="patient.php" method="POST">
@@ -98,7 +112,7 @@ if(isset($_POST['option'])){
 
 
         <table width='30%' border=0>
-                
+
                     <th>Patient ID</th>
                     <th>Name </th>
                     <th>Date of Birth </th>
@@ -106,22 +120,25 @@ if(isset($_POST['option'])){
                     <th>Emergency Contact</th>
                     <th>Contact Number</th>
                     <th>Contact Relation</th>
-                    
+
                 </tr>
-                <?php 
-            
-                while($res = mysqli_fetch_array($result)) {         
+                <?php
+
+                while($res = mysqli_fetch_array($result)) {
                     echo "<tr>";
                     echo "<td>".$res['patientID']."</td>";
                     echo "<td>".$res['fName']. " " .$res['lName']."</td>";
-                    echo "<td>".$res['DOB']."</td>";    
+                    echo "<td>".$res['DOB']."</td>";
                     echo "<td>".$res['admissionDate']."</td>";
                     echo "<td>".$res['emergencyContactName']."</td>";
                     echo "<td>".$res['emergencyContactNumber']."</td>";
                     echo "<td>".$res['emergencyContactRelation']."</td>";
-                            
+
                 }
                 ?>
          </table>
-    </body>
-</html>
+
+<?php // TEMPLATES
+include 'templates/end-main-content.html';
+include 'templates/footer.html';
+?>
