@@ -1,5 +1,4 @@
 <?php
-
 include 'db_connection.php';
 ?>
 
@@ -18,8 +17,6 @@ if(isset($_POST['sub'])){
       } else {
           echo "Error: " . $sql . "<br>" . $conn->error;
       }
-
-
 
 
   }elseif($_POST['role2'] == 'Family Member'){
@@ -46,18 +43,63 @@ if(isset($_POST['sub'])){
   }
 
 }
-
 ?>
 
-<html>
-<head>
-  <link rel="stylesheet" href="CSS/homeStyle.css">
-</head>
-<form action="login.php" method="POST" id="form1">
-    <button type="submit" value="submit" id="login">Login</button>
-</form>
+<?php //TEMPLATES
+    include 'templates/header.html';
+    include 'templates/alert-message-before-login.html';
+    include 'templates/nav-bar.html';
+    //include 'templates/main-grid-content-1column.html';
+    include 'templates/main-grid-content-2columns.html';
+    include 'templates/side-bar.html';
+    //include 'templates/side-bar-hidden.html';
+    include 'templates/main-content.html';
+    //include 'templates/end-main-content.html';
+    //include 'templates/footer.html';
+?>
 
-<form action="register.php" method="POST" id="form2">
-    <button type="submit" value="submit" id="register">Register</button>
-</form>
-</html>
+        <h1>ElderlyCare Management System</h1>
+        <br>
+        <hr>
+
+        <h2>General info</h1>
+          <br>
+        <h3>CSET 220 - Software Project III</h2>
+
+        <p>The goal of this project is to emulate a
+        real-world agency process to plan, design,
+        and build a working web application
+        according to client specifications and
+        employer defined workflows. It will utilize
+        everything we've learned this year.</p>
+
+        <h4>The Schedule</h3>
+        <p>This is a five-week project. Each week will
+        start with a planning day to prep a week's
+        worth of stories and review the previous
+        week's deployment.</p>
+        <hr>
+        <h3>Technologies</h2>
+        <ul>
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>JavaScript</li>
+          <li>PHP</li>
+          <li>phpMyAdmin</li>
+          <li>MySQL</li>
+          <li>Agile Process</li>
+          <li>Feature Branch Git Workflow</li>
+        </ul>
+        <hr>
+        <h3>Collaborators</h2>
+        <ul>
+          <li>Hari Allen</li>
+          <li>Anthony Keller</li>
+          <li>Jody Winters</li>
+          <li>Julio Pochet Edmead</li>
+        </ul>
+
+<?php // TEMPLATES
+  include 'templates/end-main-content.html';
+  include 'templates/footer.html';
+?>
