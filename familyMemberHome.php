@@ -9,7 +9,6 @@ if($_GET['error'] == 2) echo "You are not authorized for that page";
 include 'db_connection.php';
     $caregiver = "";
     $doctor = "";
-    echo "Family Member Home <br>";
     if(isset($_POST['search'])) {
         $sql = "SELECT * FROM PatientChecklist WHERE date='$_POST[date]' AND patientID=$_POST[patientID];";
         $result = $conn->query($sql);
