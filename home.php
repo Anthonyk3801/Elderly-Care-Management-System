@@ -74,6 +74,25 @@ if(isset($_POST['sub'])){
         <h1>ElderlyCare Management System</h1>
         <br>
         <hr>
+        <ul class="nav col-13 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="patientInformation.php" class="nav-link px-2 text-dark">patientInformation</a></li>
+          <li><a href="appointment.php" class="nav-link px-2 text-dark">appointment</a></li>
+          <li><a href="role.php" class="nav-link px-2 text-dark">role</a></li>
+          <li><a href="patientHome.php" class="nav-link px-2 text-dark">patientHome</a></li>
+          <li><a href="employee.php" class="nav-link px-2 text-dark">employee</a></li>
+          <li><a href="patient.php" class="nav-link px-2 text-dark">patient</a></li>
+          <li><a href="registrationApproval.php" class="nav-link px-2 text-dark">registrationApproval</a></li>
+          <li><a href="roster.php" class="nav-link px-2 text-dark">roster</a></li>
+          <li><a href="newRoster.php" class="nav-link px-2 text-dark">newRoster</a></li>
+          <li><a href="doctorHome.php" class="nav-link px-2 text-dark">doctorHome</a></li>
+          <li><a href="patientDoctor.php" class="nav-link px-2 text-dark">patientDoctor</a></li>
+          <li><a href="caregiverHome.php" class="nav-link px-2 text-dark">caregiverHome</a></li>
+          <li><a href="familyMemberHome.php" class="nav-link px-2 text-dark">familyMemberHome</a></li>
+          <li><a href="adminReport.php" class="nav-link px-2 text-dark">adminReport</a></li>
+          <li><a href="payment.php" class="nav-link px-2 text-dark">payment</a></li>
+        </ul>
+        <hr>
+        <br>
 
         <h2>General info</h1>
           <br>
