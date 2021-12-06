@@ -21,6 +21,8 @@ if(isset($_SESSION['level'])){
 ?>
 
 <h1>Doctor Appointments</h1>
+<hr>
+<br>
 
 <?php // TEMPLATES
   include 'templates/end-main-content.html';
