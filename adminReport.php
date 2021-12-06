@@ -8,6 +8,12 @@ if(isset($_SESSION['level'])){
 include 'db_connection.php';
 echo "Admin Report";
 
+if(isset($_POST['search'])) {
+    $sql = "SELECT * FROM PatientChecklist
+    where date='$_POST[date]'";
+    $result = $conn->query($sql);
+}
+
 
 ?>
 
@@ -27,6 +33,7 @@ echo "Admin Report";
             <th>Doctor Name</th>
             <th>Caregiver Name</th>
             <th>Doctor Appointment</th>
+            <th>Attendend Appointment</th>
             <th>Breakfast</th>
             <th>Morning Med</th>
             <th>Lunch</th>
@@ -35,18 +42,28 @@ echo "Admin Report";
             <th>Night Med</th>
                     
             </tr>
-                   
-            <tr>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
-            <td>Hello</td>
+            <?php 
+            
+            while($res = mysqli_fetch_array($result)) { 
+                $sql="SELECT * FROM DoctorAppointments WHERE date='$_POST[date]' AND patientID=$res[patientID]";
+                $result2 = $conn->query($sql);
+                $appoint = $result2->fetch_assoc();
+                
+                echo "<tr>";
+                echo "<td>".$res['patientID']."</td>";
+                echo "<td>".$appoint['doctorID']."</td>";
+                echo "<td> caregiver name </td>";    
+                echo "<td>".$appoint['time']."</td>";
+                echo "<td>".$appoint['attendance']."</td>";
+                echo "<td>".$res['breakfast']."</td>";
+                echo "<td>".$res['morningMedCheck']."</td>";
+                echo "<td>".$res['lunch']."</td>";
+                echo "<td>".$res['lunchMedCheck']."</td>";
+                echo "<td>".$res['dinner']."</td>";
+                echo "<td>".$res['nightMedCheck']."</td>";
+                        
+            }
+            ?> 
 
         </table>
     </body>

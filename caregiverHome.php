@@ -87,7 +87,7 @@ $sql="Select * FROM PatientChecklist
             <?php 
         
             while($res = mysqli_fetch_array($result)) {  
-                $sql="SELECT * FROM DoctorAppointments WHERE patientID = $res[patientID] ORDER BY date DESC LIMIT 1";
+                $sql="SELECT * FROM DoctorAppointments WHERE patientID = $res[patientID] AND attendance = 1 ORDER BY date DESC LIMIT 1";
                 $newresult = $conn->query($sql);
                 $row = $newresult->fetch_assoc();
                 $morn = strtoupper($row['morningMed']);
