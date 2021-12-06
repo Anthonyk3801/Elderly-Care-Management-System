@@ -18,6 +18,9 @@
     //include 'templates/footer.html';
 ?>
 
+        <h1>Login</h1>
+        <hr>
+        <br>
         <form action="route.php" method="post">
             <label for="email">Email: </label>
             <input type="text" name="email" id="email" required>

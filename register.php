@@ -18,6 +18,9 @@
     //include 'templates/footer.html';
 ?>
 
+<h1>Sign Up</h1>
+<hr>
+<br>
 <form action="register.php" method="POST">
         <label for="role">Choose a role:</label>
         <select id="role" name="role">
