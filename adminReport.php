@@ -9,7 +9,7 @@ if(isset($_SESSION['level'])){
 
 <?php //TEMPLATES
     include 'templates/header.html';
-    include 'templates/alert-message-before-login.html';
+    //include 'templates/alert-message-before-login.html';
     include 'templates/nav-bar.html';
     include 'templates/main-grid-content-1column.html';
     //include 'templates/main-grid-content-2columns.html';
@@ -20,9 +20,11 @@ if(isset($_SESSION['level'])){
     //include 'templates/footer.html';
 ?>
 
-<h1>Admin Report</h1>
+<h1>Admin’s Report</h1>
+<hr>
+<br>
 
 <?php // TEMPLATES
-  include 'templates/end-main-content.html';
-  include 'templates/footer.html';
+include 'templates/end-main-content.html';
+include 'templates/footer.html';
 ?>
