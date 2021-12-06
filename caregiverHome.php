@@ -181,7 +181,7 @@ $sql="Select * FROM PatientChecklist
      </table>
      </form>
 
-     <?php // TEMPLATES
-       include 'templates/end-main-content.html';
-       include 'templates/footer.html';
-     ?>
+<?php // TEMPLATES
+include 'templates/end-main-content.html';
+include 'templates/footer.html';
+?>
