@@ -3,6 +3,13 @@
     if(isset($_GET['error'])){
         echo "<P>Incorrect Email or Password.</p>";
     }
+    /*session_start();
+    if(isset($_SESSION['level'])){
+    header('location:extras/transfer.php?error=2');
+    }else{
+    session_destroy();
+    }
+    */
 ?>
 
 <?php //TEMPLATES

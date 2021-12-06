@@ -2,6 +2,16 @@
     
 include 'db_connection.php';
 
+/*session_start();
+if(isset($_SESSION['level'])){
+    header('location:extras/transfer.php?error=2');
+elseif(!isset($_SESSION['level'])){
+    header('location:Home.php');
+}else{
+    session_destroy();
+}
+*/
+
 if(isset($_POST['login'])){
     $email = strtolower($_POST['email']);
     $check = false;
