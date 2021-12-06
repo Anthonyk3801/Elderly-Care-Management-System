@@ -3,6 +3,19 @@ include 'db_connection.php';
 ?>
 
 <?php
+
+function rannum($length) {
+    $result = '';
+
+    for($i = 0; $i < $length; $i++) {
+        $result .= mt_rand(0, 9);
+    }
+
+    return $result;
+}
+
+$newID = (int)rannum(5);
+
 if(isset($_POST['sub'])){
 
   if($_POST['role2'] == 'Patient'){
@@ -11,7 +24,7 @@ if(isset($_POST['sub'])){
                                 emergencyContactNum, emergencyContactRelation, patientID, groupID,
                                 admissionDate, approval, totalDues)
       VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', $_POST[familyCode], '$_POST[emergencyContactName]',
-      '$_POST[emergencyContactNum]', '$_POST[emergencyContactRelation]', '0', '0', '1900-01-01', 0, 0)";
+      '$_POST[emergencyContactNum]', '$_POST[emergencyContactRelation]', $newID, '0', '1900-01-01', 0, 0)";
       if ($conn->query($sql) === TRUE) {
           echo "Registeration Complete!";
       } else {
@@ -33,7 +46,7 @@ if(isset($_POST['sub'])){
 
     $sql = "INSERT INTO Employees (fName, lName, email, phone, password, DOB, employeeID, role,
                                     salary, approval)
-      VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', 0, '$_POST[role2]',
+      VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', $newID, '$_POST[role2]',
               0, 0)";
               if ($conn->query($sql) === TRUE) {
                   echo "Registeration Complete!";
