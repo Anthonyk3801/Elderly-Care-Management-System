@@ -11,11 +11,11 @@ if(isset($_POST['accept'])){
     $arr = explode(' ', $_POST['accept']);
     $email = $arr[0];
     $table = $arr[1];
-    
+
     $sql = "UPDATE $table
     SET approval = 1
     WHERE email = '$email';";
-    
+
 
     if ($conn->query($sql) === TRUE) {
         echo "Registration Approved Successfully.";
@@ -27,7 +27,7 @@ if(isset($_POST['accept'])){
     $email = $arr[0];
     $table = $arr[1];
     $sql = "DELETE FROM $table WHERE email='$email' ";
-    
+
     if ($conn->query($sql) === TRUE) {
         echo "Registration Declined Successfully.";
     } else {
@@ -55,21 +55,37 @@ WHERE approval = 0;";
 $eresult = $conn->query($sql);
 
 ?>
-<html>
-<head>
-  <link rel="stylesheet" href="CSS/patientStyles.css">
-</head>
-    <body>
+
+<?php //TEMPLATES
+    include 'templates/header.html';
+    //include 'templates/alert-message-before-login.html';
+    include 'templates/nav-bar.html';
+    include 'templates/main-grid-content-1column.html';
+    //include 'templates/main-grid-content-2columns.html';
+    //include 'templates/side-bar.html';
+    //include 'templates/side-bar-hidden.html';
+    include 'templates/main-content.html';
+    //include 'templates/end-main-content.html';
+    //include 'templates/footer.html';
+?>
+  <!-- <link rel="stylesheet" href="CSS/patientStyles.css"> -->
+  
+
+  <h1>Registration Approval</h1>
+  <hr>
+  <br>
+
         <form action="registrationApproval.php" id="form1" method="POST">
         <table width='30%' border=0>
-                
-                    <th>Name</th>
-                    <th>Role</th>
-                    <th>Select</th>
+                <tr>
+                  <th>Name</th>
+                  <th>Role</th>
+                  <th>Select</th>
                 </tr>
-                <?php 
-            
-                while($res = mysqli_fetch_array($presult)) {         
+
+                <?php
+
+                while($res = mysqli_fetch_array($presult)) {
                     echo "<tr>";
                     echo "<td>" . $res['fName'] . " " . $res['lName'] . "</td>";
                     echo "<td>Patient</td>";
@@ -87,10 +103,10 @@ $eresult = $conn->query($sql);
                     <button type="submit" name="decline" form="form1" id="decline" value="<?php echo $res['email'] . ' FamilyMember'?>">X</button></td>
                     <?php
                 }
-                while($res = mysqli_fetch_array($eresult)) {         
+                while($res = mysqli_fetch_array($eresult)) {
                     echo "<tr>";
                     echo "<td>" . $res['fName'] . " " . $res['lName'] . "</td>";
-                    echo "<td>" . $res['role'] . "</td>";  
+                    echo "<td>" . $res['role'] . "</td>";
                     ?>
                     <td><button type="submit" name="accept" form="form1" id="accept" value="<?php echo $res['email'] . ' Employee'?>">&#10004;</button>
                     <button type="submit" name="decline" form="form1" id="decline" value="<?php echo $res['email'] . ' Employee'?>">X</button></td>
@@ -99,5 +115,8 @@ $eresult = $conn->query($sql);
                 ?>
          </table>
          </form>
-    </body>
-</html>
+
+<?php // TEMPLATES
+include 'templates/end-main-content.html';
+include 'templates/footer.html';
+?>
