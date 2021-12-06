@@ -3,6 +3,14 @@
     $sql = "SELECT * FROM Roles;";
 
     $result = $conn->query($sql);
+
+    /*session_start();
+    if(isset($_SESSION['level'])){
+    header('location:extras/transfer.php?error=2');
+    }else{
+    session_destroy();
+    }
+    */
 ?>
 
 <?php //TEMPLATES

@@ -1,8 +1,13 @@
 <?php
 include 'db_connection.php';
-?>
 
-<?php
+/*session_start();
+if(isset($_SESSION['level'])){
+  header('location:extras/transfer.php?error=2');
+}else{
+  session_destroy();
+}
+*/
 
 function rannum($length) {
     $result = '';
