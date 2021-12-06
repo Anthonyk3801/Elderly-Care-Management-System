@@ -10,7 +10,7 @@ if(isset($_SESSION['level'])){
 
 <?php //TEMPLATES
     include 'templates/header.html';
-    include 'templates/alert-message-before-login.html';
+    //include 'templates/alert-message-before-login.html';
     include 'templates/nav-bar.html';
     include 'templates/main-grid-content-1column.html';
     //include 'templates/main-grid-content-2columns.html';
@@ -22,6 +22,8 @@ if(isset($_SESSION['level'])){
 ?>
 
 <h1>Additional Information of Patient</h1>
+<hr>
+<br>
 
 <form action="patientInformation.php" method="POST">
 
