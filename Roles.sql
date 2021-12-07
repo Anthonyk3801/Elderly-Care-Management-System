@@ -8,7 +8,7 @@ CREATE TABLE `Roles` (
 INSERT INTO `Roles` (`role`, `accessLevel`)
 VALUES
 ("Admin", 1),
-("Supervisor", 2),
+("SuperVisor", 2),
 ("Doctor", 3),
 ("Caregiver", 4),
 ("Patient", 5),
