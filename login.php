@@ -25,16 +25,39 @@
     //include 'templates/footer.html';
 ?>
 
-        <h1>Login</h1>
-        <hr>
-        <br>
+        <main class="form-signing">
+          <form action="route.php" method="post">
+            <h1 class="h1 mb-3 fw-normal text-center">Login</h1>
+            <hr>
+            <div class="form-floating mb-3 mt-3">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+              <label for="floatingPassword">Password</label>
+            </div>
+
+            <div class="checkbox mb-3 mt-3">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+          </form>
+        </main>
+
+<!-- this is the old code... now gotta implement the database to the new form
         <form action="route.php" method="post">
             <label for="email">Email: </label>
             <input type="text" name="email" id="email" required>
+            <br><br>
             <label for="password">Password: </label>
             <input type="text" name="password" id="password" required>
+            <br><br>
             <input type="submit" name="login" id="login" value="LOGIN">
         </form>
+-->
 
 
 <?php // TEMPLATES

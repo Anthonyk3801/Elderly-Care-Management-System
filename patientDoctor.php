@@ -7,10 +7,21 @@ if(isset($_SESSION['level'])){
 */
   include 'db_connection.php';
 ?>
-<html>
-<head>
-  <link rel="stylesheet" href="CSS/patientDoctorStyle.css">
-</head>
+
+<?php //TEMPLATES
+    include 'templates/header.html';
+    //include 'templates/alert-message-before-login.html';
+    include 'templates/nav-bar.html';
+    include 'templates/main-grid-content-1column.html';
+    //include 'templates/main-grid-content-2columns.html';
+    //include 'templates/side-bar.html';
+    //include 'templates/side-bar-hidden.html';
+    include 'templates/main-content.html';
+    //include 'templates/end-main-content.html';
+    //include 'templates/footer.html';
+?>
+<!-- <link rel="stylesheet" href="CSS/patientDoctorStyle.css"> -->
+
 <form action="patientDoctor.php" method="POST">
   Date: <input type="date" name="search"><br>
   <input type="submit" value="search" id="search">
@@ -41,6 +52,7 @@ if(isset($_SESSION['level'])){
 <input type="submit" value="submit" id="submit">
 </form>
 </div>
+
 <script>
 function test() {
   let x = document.getElementById("hide");
@@ -51,6 +63,7 @@ function test() {
   }
 }
 </script>
+
 <?php
 if(isset($_POST['search'])){
 $search = $_POST['search'];
@@ -121,4 +134,8 @@ if (isset($_POST['date'])){
   }
 }
 ?>
-</html>
+
+<?php // TEMPLATES
+  include 'templates/end-main-content.html';
+  include 'templates/footer.html';
+?>
