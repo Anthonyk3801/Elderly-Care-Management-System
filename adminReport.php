@@ -35,7 +35,9 @@ $caregiverName = 0;
 <h1>Admin’s Report</h1>
 <hr>
 <br>
-
+<head>
+    <link rel="stylesheet" href="CSS/adminReport.css">
+</head>
         <form action="adminReport.php" method="post">
             <label for="date">Date: </label>
             <input type="date" name="date" id="date" value=<?php if(isset($_POST['search'])) echo $_POST['date'];?>>
@@ -44,10 +46,10 @@ $caregiverName = 0;
 
         <table>
           <tr>
-            <th>Patient Name</th>
+            <th class="name">Patient Name</th>
             <th>Patient ID</th>
-            <th>Doctor Name</th>
-            <th>Caregiver Name</th>
+            <th class="name">Doctor Name</th>
+            <th class="name">Caregiver Name</th>
             <th>Appointment Time</th>
             <th>Attendend Appointment</th>
             <th>Breakfast</th>
@@ -106,41 +108,41 @@ $caregiverName = 0;
                 echo "<td>".$care['fName'] . " " . $care['lName'] . "</td>";
                 echo "<td>".$time."</td>";
                 if($attendance == 0) {
-                    echo "<td> X </td>";
+                    echo "<td class='center'> X </td>";
                 }elseif($attendance == 1){
-                    echo "<td> &#10004; </td>";
+                    echo "<td class='center'> &#10004; </td>";
                 }else{
                     echo "<td> No App </td>";
                 }
                 if($res['breakfast'] == 0) {
-                    echo "<td> X </td>";
+                    echo "<td class='center'> X </td>";
                 }else{
-                    echo "<td> &#10004; </td>";
+                    echo "<td class='center'> &#10004; </td>";
                 }
                 if($res['morningMedCheck'] == 0) {
-                    echo "<td> X </td>";
+                    echo "<td class='center'> X </td>";
                 }else{
-                    echo "<td> &#10004; </td>";
+                    echo "<td class='center'> &#10004; </td>";
                 }
                 if($res['lunch'] == 0) {
-                    echo "<td> X </td>";
+                    echo "<td class='center'> X </td>";
                 }else{
-                    echo "<td> &#10004; </td>";
+                    echo "<td class='center'> &#10004; </td>";
                 }
                 if($res['lunchMedCheck'] == 0) {
-                    echo "<td> X </td>";
+                    echo "<td class='center'> X </td>";
                 }else{
-                    echo "<td> &#10004; </td>";
+                    echo "<td class='center'> &#10004; </td>";
                 }
                 if($res['dinner'] == 0) {
-                    echo "<td> X </td>";
+                    echo "<td class='center'> X </td>";
                 }else{
-                    echo "<td> &#10004; </td>";
+                    echo "<td class='center'> &#10004; </td>";
                 }
                 if($res['nightMedCheck'] == 0) {
-                    echo "<td> X </td>";
+                    echo "<td class='center'> X </td>";
                 }else{
-                    echo "<td> &#10004; </td>";
+                    echo "<td class='center'> &#10004; </td>";
                 }
                 }
             }

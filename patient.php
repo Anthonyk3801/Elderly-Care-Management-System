@@ -86,7 +86,9 @@ if(isset($_POST['option'])){
   <h1>Patients</h1>
   <hr>
   <br>
-
+  <head>
+    <link rel="stylesheet" href="CSS/patient.css">
+  </head>
         <form action="patient.php" method="POST">
             <label for="option">Search Option: </label>
             <select name="option" id="option">
@@ -111,7 +113,7 @@ if(isset($_POST['option'])){
         </form>
 
 
-        <table width='30%' border=0>
+        <table>
 
                     <th>Patient ID</th>
                     <th>Name </th>

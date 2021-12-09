@@ -27,7 +27,7 @@ if(isset($_POST['change'])){
     $sql = "UPDATE PatientChecklist SET $column = 1 WHERE patientID = $id AND date = '$date';";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Update Successful.";
+        //echo "Update Successful.";
     } else {
         echo "Error updating record: " . $conn->error;
     }
@@ -47,7 +47,7 @@ $sql="Select * FROM PatientChecklist
             $sql = "Insert into PatientChecklist (patientID, date, morningMedCheck, lunchMedCheck, nightMedCheck, breakfast, lunch, dinner)
             Values ($res[patientID], '$date', 0, 0, 0, 0, 0, 0);";
             if ($conn->query($sql) === TRUE) {
-                echo "New record created successfully <br>";
+                //echo "New record created successfully <br>";
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
@@ -82,9 +82,11 @@ $sql="Select * FROM PatientChecklist
 <h1>Caregiver's Home</h1>
 <hr>
 <br>
-
+<head>
+    <link rel="stylesheet" href="CSS/caregiver.css">
+</head>
         <form action="caregiverHome.php" id="form1" method="post">
-          <table width=30% border=1>
+          <table>
             <tr>
               <th>Patient Name</th>
               <th>Breakfast</th>
@@ -135,42 +137,42 @@ $sql="Select * FROM PatientChecklist
                 echo "<td>".$res['fName']. " " . $res['lName'] . "</td>";
                 if($res['breakfast'] == 0){
                     ?>
-                    <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' breakfast'?>">O</button></td>
+                    <td  class='center'><button class="button" type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' breakfast'?>">O</button></td>
                 <?php
                 }else{
-                    echo "<td>&#10004;</td>";
+                    echo "<td  class='center'>&#10004;</td>";
                 }
                 if($res['morningMedCheck'] == 0){
                     ?>
-                    <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' morningMedCheck'?>"><?php echo $morn?></button></td>
+                    <td><button class="button" type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' morningMedCheck'?>"><?php echo $morn?></button></td>
                 <?php
                 }else{
                     echo "<td>" . $morn . " " . "&#10004;</td>";
                 }
                 if($res['lunch'] == 0){
                     ?>
-                    <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' lunch'?>">O</button></td>
+                    <td class='center'><button class="button" type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' lunch'?>">O</button></td>
                 <?php
                 }else{
-                    echo "<td>&#10004;</td>";
+                    echo "<td class='center'>&#10004;</td>";
                 }
                 if($res['lunchMedCheck'] == 0){
                     ?>
-                    <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' lunchMedCheck'?>"><?php echo $lunch?></button></td>
+                    <td><button class="button" type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' lunchMedCheck'?>"><?php echo $lunch?></button></td>
                 <?php
                 }else{
                     echo "<td>" . $lunch . " " . "&#10004;</td>";
                 }
                 if($res['dinner'] == 0){
                     ?>
-                    <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' dinner'?>">O</button></td>
+                    <td  class='center'><button class="button" type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' dinner'?>">O</button></td>
                 <?php
                 }else{
-                    echo "<td>&#10004;</td>";
+                    echo "<td  class='center'>&#10004;</td>";
                 }
                 if($res['nightMedCheck'] == 0){
                     ?>
-                    <td><button type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' nightMedCheck'?>"><?php echo $night?></button></td>
+                    <td><button class="button" type="submit" name="change" form="form1" id="change" value="<?php echo $res['patientID'] . ' nightMedCheck'?>"><?php echo $night?></button></td>
                 <?php
                 }else{
                     echo "<td>" . $night . " " . "&#10004;</td>";
