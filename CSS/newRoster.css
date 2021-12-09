@@ -1,0 +1,13 @@
+
+.formcss {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 5px;
+}
+
+.submity {
+    margin-top: 10px;
+}

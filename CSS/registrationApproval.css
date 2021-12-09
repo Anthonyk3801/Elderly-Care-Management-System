@@ -1,0 +1,17 @@
+table, th, td{
+    border: 1px solid black;
+    margin-top: 15px;
+}
+
+th, td {
+    height: 20px;
+    width: 120px;
+}
+
+.center {
+    text-align: center;
+}
+
+.button {
+    border-radius: 3px;
+}

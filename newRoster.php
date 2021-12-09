@@ -83,96 +83,102 @@ if($check == 2) echo "All Fields Must Be Different";
 if($created == 1) echo "New Roster was Created!";
 
 ?>
+<head>
+  <link rel="stylesheet" href="CSS/newRoster.css">
+</head>
 <form action="newRoster.php" method="post">
   <label for="date">Date: </label>
   <input type="date" name="date" id="date" value=<?php if(isset($_POST['ok']) || isset($_POST['create']))echo $_POST['date'];?>>
   <input type="submit" name="ok" id="ok" value="OK">
+  <div class="formcss">
+    <label for="supervisor">Supervisor: </label>
+    <select name="supervisor" id="supervisor">
+        <option value="nothing">---</option>
+        <?php
+        while($res = mysqli_fetch_array($sresult)) {
+        ?>
+              <option value="<?php echo $res['employeeID'];?>"><?php echo $res['fName'] . " " . $res['lName'];?></option>;
+        <?php
+        }
+        ?>
+    </select>
 
-  <label for="supervisor">Supervisor: </label>
-  <select name="supervisor" id="supervisor">
-      <option value="nothing">---</option>
-      <?php
-      while($res = mysqli_fetch_array($sresult)) {
-      ?>
-            <option value="<?php echo $res['employeeID'];?>"><?php echo $res['fName'] . " " . $res['lName'];?></option>;
-      <?php
-      }
-      ?>
-  </select>
+    <label for="doctor">Doctor: </label>
+    <select name="doctor" id="doctor">
+        <option value="nothing">---</option>
+        <?php
+        while($res = mysqli_fetch_array($dresult)) {
+        ?>
+              <option value="<?php echo $res['employeeID'];?>"><?php echo $res['fName'] . " " . $res['lName'];?></option>;
+        <?php
+        }
+        ?>
+    </select>
 
-  <label for="doctor">Doctor: </label>
-  <select name="doctor" id="doctor">
-      <option value="nothing">---</option>
-      <?php
-      while($res = mysqli_fetch_array($dresult)) {
-      ?>
-            <option value="<?php echo $res['employeeID'];?>"><?php echo $res['fName'] . " " . $res['lName'];?></option>;
-      <?php
-      }
-      ?>
-  </select>
+    <label for="caregiver1">Caregiver 1: </label>
+    <select name="caregiver1" id="caregiver1">
+        <option value="nothing">---</option>
+        <?php
+        //Getting all caregivers
+        $sql = "SELECT * FROM Employee WHERE lower(role) = 'caregiver' AND approval = 1;";
+        $cresult = $conn->query($sql);
+        while($res = mysqli_fetch_array($cresult)) {
+        ?>
+              <option value="<?php echo $res['employeeID'];?>"><?php echo $res['fName'] . " " . $res['lName'];?></option>;
+        <?php
+        }
+        ?>
+    </select>
+  </div>
 
-  <label for="caregiver1">Caregiver 1: </label>
-  <select name="caregiver1" id="caregiver1">
-      <option value="nothing">---</option>
-      <?php
-      //Getting all caregivers
-      $sql = "SELECT * FROM Employee WHERE lower(role) = 'caregiver' AND approval = 1;";
-      $cresult = $conn->query($sql);
-      while($res = mysqli_fetch_array($cresult)) {
-      ?>
-            <option value="<?php echo $res['employeeID'];?>"><?php echo $res['fName'] . " " . $res['lName'];?></option>;
-      <?php
-      }
-      ?>
-  </select>
+  <div class="formcss">
+    <label for="caregiver2">Caregiver 2: </label>
+    <select name="caregiver2" id="caregiver2">
+        <option value="nothing">---</option>
+        <?php
+        //Getting all caregivers
+        $sql = "SELECT * FROM Employee WHERE lower(role) = 'caregiver' AND approval = 1;";
+        $cresult = $conn->query($sql);
+        while($res = mysqli_fetch_array($cresult)) {
+        ?>
+              <option value="<?php echo $res['employeeID'];?>"><?php echo $res['fName'] . " " . $res['lName'];?></option>;
+        <?php
+        }
+        ?>
+    </select>
 
-  <label for="caregiver2">Caregiver 2: </label>
-  <select name="caregiver2" id="caregiver2">
-      <option value="nothing">---</option>
-      <?php
-      //Getting all caregivers
-      $sql = "SELECT * FROM Employee WHERE lower(role) = 'caregiver' AND approval = 1;";
-      $cresult = $conn->query($sql);
-      while($res = mysqli_fetch_array($cresult)) {
-      ?>
-            <option value="<?php echo $res['employeeID'];?>"><?php echo $res['fName'] . " " . $res['lName'];?></option>;
-      <?php
-      }
-      ?>
-  </select>
+    <label for="caregiver3">Caregiver 3: </label>
+    <select name="caregiver3" id="caregiver3">
+        <option value="nothing">---</option>
+        <?php
+        //Getting all caregivers
+        $sql = "SELECT * FROM Employee WHERE lower(role) = 'caregiver' AND approval = 1;";
+        $cresult = $conn->query($sql);
+        while($res = mysqli_fetch_array($cresult)) {
+        ?>
+              <option value="<?php echo $res['employeeID'];?>"><?php echo $res['fName'] . " " . $res['lName'];?></option>;
+        <?php
+        }
+        ?>
+    </select>
 
-  <label for="caregiver3">Caregiver 3: </label>
-  <select name="caregiver3" id="caregiver3">
-      <option value="nothing">---</option>
-      <?php
-      //Getting all caregivers
-      $sql = "SELECT * FROM Employee WHERE lower(role) = 'caregiver' AND approval = 1;";
-      $cresult = $conn->query($sql);
-      while($res = mysqli_fetch_array($cresult)) {
-      ?>
-            <option value="<?php echo $res['employeeID'];?>"><?php echo $res['fName'] . " " . $res['lName'];?></option>;
-      <?php
-      }
-      ?>
-  </select>
+    <label for="caregiver4">Caregiver 4: </label>
+    <select name="caregiver4" id="caregiver4">
+        <option value="nothing">---</option>
+        <?php
+        //Getting all caregivers
+        $sql = "SELECT * FROM Employee WHERE lower(role) = 'caregiver' AND approval = 1;";
+        $cresult = $conn->query($sql);
+        while($res = mysqli_fetch_array($cresult)) {
+        ?>
+              <option value="<?php echo $res['employeeID'];?>"><?php echo $res['fName'] . " " . $res['lName'];?></option>;
+        <?php
+        }
+        ?>
+    </select>
+  </div>
 
-  <label for="caregiver4">Caregiver 4: </label>
-  <select name="caregiver4" id="caregiver4">
-      <option value="nothing">---</option>
-      <?php
-      //Getting all caregivers
-      $sql = "SELECT * FROM Employee WHERE lower(role) = 'caregiver' AND approval = 1;";
-      $cresult = $conn->query($sql);
-      while($res = mysqli_fetch_array($cresult)) {
-      ?>
-            <option value="<?php echo $res['employeeID'];?>"><?php echo $res['fName'] . " " . $res['lName'];?></option>;
-      <?php
-      }
-      ?>
-  </select>
-
-  <input type="submit" name="create" id="create" value="CREATE">
+  <input class="submity" type="submit" name="create" id="create" value="CREATE">
 
 
 

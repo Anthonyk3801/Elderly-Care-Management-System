@@ -66,7 +66,9 @@ include 'db_connection.php';
 <h1>Family Member’s Home</h1>
 <hr>
 <br>
-
+<head>
+    <link rel="stylesheet" href="CSS/familyMemberHome.css">
+</head>
         <form action="familyMemberHome.php" method="post">
             <label for="familyCode">Family Code: </label>
             <input type="number" name="familyCode" id="familyCode" max=999 required value=<?php echo (isset($_POST['search'])) ? $_POST['familyCode']:"";?>>
@@ -80,7 +82,7 @@ include 'db_connection.php';
             <input type="submit" name="search" id="search" value="SEARCH">
         </form>
 
-        <table width='30%' border=0>
+        <table>
           <tr>
             <th>Patient Name</th>
             <th>Doctor Name</th>
@@ -106,34 +108,34 @@ include 'db_connection.php';
                         echo "<td> No Appointment </td>";
                     }
                     if($checklist['breakfast'] == 0){
-                        echo "<td> X </td>";
+                        echo "<td class='center'> X </td>";
                     }elseif($checklist['breakfast'] == 1){
-                        echo "<td> &#10004; </td>";
+                        echo "<td class='center'> &#10004; </td>";
                     }
                     if($checklist['morningMedCheck'] == 0){
-                        echo "<td> X </td>";
+                        echo "<td class='center'> X </td>";
                     }elseif($checklist['morningMedCheck'] == 1){
-                        echo "<td> &#10004; </td>";
+                        echo "<td class='center'> &#10004; </td>";
                     }
                     if($checklist['lunch'] == 0){
-                        echo "<td> X </td>";
+                        echo "<td class='center'> X </td>";
                     }elseif($checklist['lunch'] == 1){
-                        echo "<td> &#10004; </td>";
+                        echo "<td class='center'> &#10004; </td>";
                     }
                     if($checklist['lunchMedCheck'] == 0){
-                        echo "<td> X </td>";
+                        echo "<td class='center'> X </td>";
                     }elseif($checklist['lunchMedCheck'] == 1){
-                        echo "<td> &#10004; </td>";
+                        echo "<td class='center'> &#10004; </td>";
                     }
                     if($checklist['dinner'] == 0){
-                        echo "<td> X </td>";
+                        echo "<td class='center'> X </td>";
                     }elseif($checklist['dinner'] == 1){
-                        echo "<td> &#10004; </td>";
+                        echo "<td class='center'> &#10004; </td>";
                     }
                     if($checklist['nightMedCheck'] == 0){
-                        echo "<td> X </td>";
+                        echo "<td class='center'> X </td>";
                     }elseif($checklist['nightMedCheck'] == 1){
-                        echo "<td> &#10004; </td>";
+                        echo "<td class='center'> &#10004; </td>";
                     }
 
                 };
