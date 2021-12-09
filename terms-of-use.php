@@ -12,6 +12,8 @@
 ?>
 
 <h1>Terms of Use</h1>
+<hr>
+<br>
 <h2>Agreement Between User and Elderly Care Management System</h2>
 <p>The Elderly Care Management System Web Site is comprised of various Web pages operated by Elderly Care Management System.</p>
 <p>The Elderly Care Management System Web Site is offered to you conditioned on your acceptance without modification of the terms, conditions, and notices contained herein. Your use of the Elderly Care Management System Web Site constitutes your agreement to all such terms, conditions, and notices.</p>
@@ -78,7 +80,7 @@ Elderly Care Management System does not claim ownership of the materials you pro
 
 <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL Elderly Care Management System AND/OR ITS SUPPLIERS BE LIABLE FOR ANY DIRECT, INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF USE, DATA OR PROFITS, ARISING OUT OF OR IN ANY WAY CONNECTED WITH THE USE OR PERFORMANCE OF THE Elderly Care Management System WEB SITE, WITH THE DELAY OR INABILITY TO USE THE Elderly Care Management System WEB SITE OR RELATED SERVICES, THE PROVISION OF OR FAILURE TO PROVIDE SERVICES, OR FOR ANY INFORMATION, SOFTWARE, PRODUCTS, SERVICES AND RELATED GRAPHICS OBTAINED THROUGH THE Elderly Care Management System WEB SITE, OR OTHERWISE ARISING OUT OF THE USE OF THE Elderly Care Management System WEB SITE, WHETHER BASED ON CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY OR OTHERWISE, EVEN IF Elderly Care Management System OR ANY OF ITS SUPPLIERS HAS BEEN ADVISED OF THE POSSIBILITY OF DAMAGES. BECAUSE SOME STATES/JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE LIMITATION MAY NOT APPLY TO YOU. IF YOU ARE DISSATISFIED WITH ANY PORTION OF THE Elderly Care Management System WEB SITE, OR WITH ANY OF THESE TERMS OF USE, YOUR SOLE AND EXCLUSIVE REMEDY IS TO DISCONTINUE USING THE Elderly Care Management System WEB SITE.</p>
 
-<p>Service Contact: <a href="mailto:notify@ElderlyCareManagementSystem.com">notify@ElderlyCareManagementSystem.com</a></p>
+<p>Service Contact: <a class="text-info" href="mailto:notify@ElderlyCareManagementSystem.com">notify@ElderlyCareManagementSystem.com</a></p>
 
 <h2>Termination/Access Restriction</h2>
 <p>Elderly Care Management System reserves the right, in its sole discretion, to terminate your access to the Elderly Care Management System Web Site and the related services or any portion thereof at any time, without notice. General To the maximum extent permitted by law, this agreement is governed by the laws of the State of Washington, U.S.A. and you hereby consent to the exclusive jurisdiction and venue of courts in King County, Washington, U.S.A. in all disputes arising out of or relating to the use of the Elderly Care Management System Web Site.</p>
