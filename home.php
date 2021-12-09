@@ -18,7 +18,7 @@ function rannum($length) {
 
     return $result;
 }
-
+$date = date('Y-m-d');
 $newID = (int)rannum(5);
 
 if(isset($_POST['sub'])){
@@ -27,9 +27,9 @@ if(isset($_POST['sub'])){
 
     $sql = "INSERT INTO Patient (fName, lName, email, phone, password, DOB, familyCode, emergencyContactName,
                                 emergencyContactNum, emergencyContactRelation, patientID, groupID,
-                                admissionDate, approval, totalDues)
+                                admissionDate, approval, totalDues,lastUpdate)
       VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', $_POST[familyCode], '$_POST[emergencyContactName]',
-      '$_POST[emergencyContactNum]', '$_POST[emergencyContactRelation]', $newID, '0', '1900-01-01', 0, 0)";
+      '$_POST[emergencyContactNum]', '$_POST[emergencyContactRelation]', $newID, '0', '1900-01-01', 0, 0,'$date')";
       if ($conn->query($sql) === TRUE) {
           echo "Registeration Complete!";
       } else {
