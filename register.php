@@ -27,7 +27,9 @@
 ?>
 
 <main class="form-signing">
+
   <form action="register.php" method="POST">
+
     <h1 class="h1 mb-3 fw-normal text-center">Sign Up</h1>
     <hr>
     <label for="role">Choose a role:</label>
@@ -41,63 +43,74 @@
         }
         ?>
     </select>
-    <input type="submit" value="Submit">
-  </form>
 
+    <input class="bg-info text-light rounded border-0" type="submit" value="Submit">
+
+  </form>
+  <hr>
   <form action="home.php" method="POST">
   <div class="form-floating mb-3 mt-3">
-    <input type="text" id="fName" name="fName" class="form-control" placeholder="First Name">
+    <input type="text" id="fName" name="fName" class="form-control" placeholder="First Name" required>
     <label for="fName">First Name</label>
   </div>
 
   <div class="form-floating mb-3 mt-3">
-    <input type="text" id="lName" name="lName" class="form-control" placeholder="Last Name">
+    <input type="text" id="lName" name="lName" class="form-control" placeholder="Last Name" required>
     <label for="lName">Last Name</label>
   </div>
 
   <div class="form-floating mb-3 mt-3">
-    <input type="email" id="email" name="email" class="form-control" placeholder="name@example.com">
+    <input type="email" id="email" name="email" class="form-control" placeholder="name@example.com" required>
     <label for="email">Email address</label>
   </div>
 
   <div class="form-floating mb-3 mt-3">
-    <input type="tel" id="phone" name="phone" class="form-control" placeholder="000-000-0000">
+    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone #" pattern="[0-9]{10}" size="14" minlength="10" maxlength="14" required>
     <label for="phone">Phone #</label>
+    <small>Format: 1234567890</small>
   </div>
 
   <div class="form-floating mb-3 mt-3">
-    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
     <label for="password">Password</label>
   </div>
 
   <div class="form-floating mb-3 mt-3">
-    <input type="date" id="DOB" name="DOB" class="form-control" placeholder="Date of Birth">
+    <input type="date" id="DOB" name="DOB" class="form-control" placeholder="Date of Birth" required>
     <label for="DOB">Date of Birth</label>
   </div>
+  <hr>
 
-<div class="form-floating mb-3 mt-3">
-  <input type="number" id="familyCode" name="familyCode" min='100' max='999' class="form-control" placeholder="Family Code:" <?php if($_POST['role'] != 'Patient') echo 'hidden' ?>>
-  <label for="familyCode">Family Code:</label>
+<div <?php if($_POST['role'] != 'Patient') echo 'hidden' ?>>
+  <div class="form-floating mb-3 mt-3">
+    <input type="number" id="familyCode" name="familyCode" min='100' max='999' class="form-control" placeholder="Family Code:">
+    <label for="familyCode">Family Code:</label>
+    <small>Format: 123 </small>
+  </div>
+
+  <div class="form-floating mb-3 mt-3">
+    <input type="text" id="emergencyContactName" name="emergencyContactName" class="form-control" placeholder="Emergency Contact Name:">
+    <label for="emergencyContactName">Emergency Contact Name:</label>
+  </div>
+
+  <div class="form-floating mb-3 mt-3">
+    <input type="tel" id="emergencyContactNum" name="emergencyContactNum" class="form-control" placeholder="Emergency Contact #:" pattern="[0-9]{10}" pattern="[0-9]{10}" size="14" minlength="10" maxlength="14">
+    <label for="emergencyContactNum">Emergency Contact #:</label>
+    <small>Format: 1234567890</small>
+  </div>
+
+  <div class="form-floating mb-3 mt-3">
+    <input type="text" id="emergencyContactRelation" name="emergencyContactRelation" class="form-control" placeholder="Emergency Contact Relation:">
+    <label for="emergencyContactRelation">Emergency Contact Relation:</label>
+  </div>
+  <hr>
 </div>
 
-<div class="form-floating mb-3 mt-3">
-  <input type="text" id="emergencyContactName" name="emergencyContactName" class="form-control" placeholder="Emergency Contact Name:" <?php if($_POST['role'] != 'Patient') echo 'hidden' ?>>
-  <label for="emergencyContactName">Emergency Contact Name:</label>
-</div>
-
-<div class="form-floating mb-3 mt-3">
-  <input type="tel" id="emergencyContactNum" name="emergencyContactNum" class="form-control" placeholder="Emergency Contact #:" <?php if($_POST['role'] != 'Patient') echo 'hidden' ?>>
-  <label for="emergencyContactNum">Emergency Contact #:</label>
-</div>
-
-<div class="form-floating mb-3 mt-3">
-  <input type="text" id="emergencyContactRelation" name="emergencyContactRelation" class="form-control" placeholder="Emergency Contact Relation:" <?php if($_POST['role'] != 'Patient') echo 'hidden' ?>>
-  <label for="emergencyContactRelation">Emergency Contact Relation:</label>
-</div>
-
-<button class="w-100 btn btn-lg btn-primary" type="submit" id="sub" value="Submit" name='sub'>Register</button>
+<button class="w-100 btn btn-lg btn-info text-light" type="submit" id="sub" value="Submit" name='sub'>Register</button>
 
 </form>
+<p class="mt-3 fw-normal text-center">Have an account? <a class="text-info" href="login.php">Log In</a></p>
+
 </main>
 
 <?php // TEMPLATES
