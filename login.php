@@ -26,7 +26,7 @@
 ?>
 
         <main class="form-signing">
-          <form action="route.php" method="post">
+          <form action="route.php" method="POST">
             <h1 class="h1 mb-3 fw-normal text-center">Login</h1>
             <hr>
 

@@ -48,7 +48,8 @@
 
   </form>
   <hr>
-  <form action="home.php" method="POST">
+
+  <form action="login.php" method="POST">
   <div class="form-floating mb-3 mt-3">
     <input type="text" id="fName" name="fName" class="form-control" placeholder="First Name" required>
     <label for="fName">First Name</label>
