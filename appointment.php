@@ -5,6 +5,7 @@ if(isset($_SESSION['level'])){
     if($_SESSION['level'] != 1 || $_SESSION['level'] != 2) header('location:extras/transfer.php');
 };
 */
+include 'db_connection.php';
 ?>
 
 <?php //TEMPLATES
@@ -20,9 +21,46 @@ if(isset($_SESSION['level'])){
     //include 'templates/footer.html';
 ?>
 
-<h1>Doctor Appointments</h1>
+<h1 class="text-center">Doctor’s Appointment</h1>
 <hr>
-<br>
+
+<div class="mb-5 mt-5 text-center">
+<form action="patientInformation.php" method="POST">
+  <label for="patientID">Patient ID: </label>
+  <input type="text" id="patientID" name="patientID" minlength="5" maxlength="5">
+  <input class="btn-info text-light rounded" type="submit" id="sub1" value="Submit">
+</form>
+</div>
+
+<hr>
+
+<!-- NEED TO WORK ON THIS FORM BELOW -->
+<div class="mb-5 mt-5 text-start">
+<form action="#" method="POST">
+  <label for="patientName">Patient Name: </label>
+  <input readonly type="text" id="patientName" name="patientName">
+  <br>
+  <br>
+
+  <label for="date">Date: </label>
+  <input type="date" id="date" name="date">
+  <br>
+  <br>
+
+  <label for="doctor">Doctor: </label>
+  <select id="doctor" name="doctor">
+      <option value="nothing"> --- </option>
+      <option value="1"> 1 </option>
+      <option value="2"> 2 </option>
+      <option value="3"> 3 </option>
+      <option value="4"> 4 </option>
+  </select>
+  <br>
+  <br>
+
+  <input class="btn-info text-light rounded" type="submit" id="sub2" value="Submit">
+</form>
+</div>
 
 <?php // TEMPLATES
   include 'templates/end-main-content.html';
