@@ -1,11 +1,13 @@
 <?php
 session_start();
+/**/
 /*
 if(!isset($_SESSION['level'])){
     header('location:/Elderly-Care-Management-System/Home.php');
 }else{
 }
 */
+/**/
 
 if($_GET['error'] == 2){
     if($_SESSION['level'] == 1 || $_SESSION['level'] == 2){
@@ -32,6 +34,5 @@ if($_GET['error'] == 2){
         header('location:/Elderly-Care-Management-System/familyMemberHome.php?error=2');
     }
 }
-
 
 ?>

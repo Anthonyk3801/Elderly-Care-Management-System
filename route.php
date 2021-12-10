@@ -1,8 +1,10 @@
 <?php
-    
+
 include 'db_connection.php';
 
-/*session_start();
+/**/
+/*
+session_start();
 if(isset($_SESSION['level'])){
     header('location:extras/transfer.php?error=2');
 elseif(!isset($_SESSION['level'])){
@@ -11,12 +13,14 @@ elseif(!isset($_SESSION['level'])){
     session_destroy();
 }
 */
+/**/
+
 
 if(isset($_POST['login'])){
     $email = strtolower($_POST['email']);
     $check = false;
     $table = '';
-    $sql="Select * FROM Patient 
+    $sql="Select * FROM Patient
     WHERE LOWER(email) = '$email' AND password = '$_POST[password]' AND approval = 1;";
 
     $result = $conn->query($sql);
@@ -31,7 +35,7 @@ if(isset($_POST['login'])){
         }
 
     }
-    $sql="Select * FROM FamilyMember 
+    $sql="Select * FROM FamilyMember
     WHERE LOWER(email) = '$email' AND password = '$_POST[password]' AND approval = 1;";
 
     $result = $conn->query($sql);
@@ -79,7 +83,7 @@ if(isset($_POST['login'])){
             $result = $conn->query($sql);
             $res = $result->fetch_assoc();
             $_SESSION['level'] = $res['accessLevel'];
-            
+
         }elseif($table == 'Patient') {
             $sql = "Select patientID from Patient where LOWER(email) = '$email';";
             $result = $conn->query($sql);
@@ -103,8 +107,8 @@ if(isset($_POST['login'])){
         echo "Role: " . $_SESSION['role'] . "<br>";
         if($table == 'Patient' || $table == 'Employee') echo "ID: " . $_SESSION['id'];
         */
-    } 
-    
+    }
+
     if($_SESSION['level'] == 1 || $_SESSION['level'] == 2){
         header('location:roster.php');
     }elseif($_SESSION['level'] == 3){
@@ -116,7 +120,7 @@ if(isset($_POST['login'])){
     }elseif($_SESSION['level'] == 6){
         header('location:familyMemberHome.php');
     }
-    
+
 }
 
 ?>
