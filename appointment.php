@@ -58,7 +58,8 @@ include 'db_connection.php';
   <br>
   <br>
 
-  <input class="btn-info text-light rounded" type="submit" id="sub2" value="Submit">
+  <input class="w-100 btn-info text-light rounded" type="submit" id="sub2" value="Submit">
+  <button class="w-100 btn btn-sm btn-secondary text-light mt-1 mb-1" type="reset">Cancel</button>
 </form>
 </div>
 
