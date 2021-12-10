@@ -46,7 +46,7 @@
               </label>
             </div>
 
-            <button class="w-100 btn btn-lg btn-info text-light mb-1" type="submit">Sign in</button>
+            <button class="w-100 btn btn-lg btn-info text-light" name="login" id="login" type="submit">Sign in</button>
             <button class="w-100 btn btn-sm btn-secondary text-light mb-1" type="reset">Cancel</button>
 
           </form>
@@ -55,17 +55,6 @@
 
         </main>
 
-<!-- this is the old code... now gotta implement the database to the new form
-        <form action="route.php" method="post">
-            <label for="email">Email: </label>
-            <input type="text" name="email" id="email" required>
-            <br><br>
-            <label for="password">Password: </label>
-            <input type="text" name="password" id="password" required>
-            <br><br>
-            <input type="submit" name="login" id="login" value="LOGIN">
-        </form>
--->
 
 <?php // TEMPLATES
   include 'templates/end-main-content.html';
