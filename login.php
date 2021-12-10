@@ -26,16 +26,18 @@
 ?>
 
         <main class="form-signing">
-          <form action="route.php" method="post">
+          <form action="route.php" method="POST">
             <h1 class="h1 mb-3 fw-normal text-center">Login</h1>
             <hr>
+
             <div class="form-floating mb-3 mt-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-              <label for="floatingInput">Email address</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="name@example.com" required>
+              <label for="email">Email address</label>
             </div>
+
             <div class="form-floating mb-3 mt-3">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-              <label for="floatingPassword">Password</label>
+              <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+              <label for="password">Password</label>
             </div>
 
             <div class="checkbox mb-3 mt-3">
@@ -43,8 +45,13 @@
                 <input type="checkbox" value="remember-me"> Remember me
               </label>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+
+            <button class="w-100 btn btn-lg btn-info text-light" type="submit">Sign in</button>
+
           </form>
+
+          <p class="mt-3 fw-normal text-center">Don’t have an account? <a class="text-info" href="register.php">Sign Up</a></p>
+
         </main>
 
 <!-- this is the old code... now gotta implement the database to the new form
@@ -58,7 +65,6 @@
             <input type="submit" name="login" id="login" value="LOGIN">
         </form>
 -->
-
 
 <?php // TEMPLATES
   include 'templates/end-main-content.html';
