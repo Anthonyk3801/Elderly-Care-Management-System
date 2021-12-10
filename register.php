@@ -44,7 +44,7 @@
         ?>
     </select>
 
-    <input class="bg-info text-light rounded border-0" type="submit" value="Submit">
+    <input class="btn-info text-light rounded" type="submit" value="Submit">
 
   </form>
   <hr>
