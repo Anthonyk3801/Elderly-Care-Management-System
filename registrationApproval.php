@@ -116,7 +116,7 @@ $eresult = $conn->query($sql);
                 ?>
 
          </table>
-         <!-- Commented Reset Button out... -->
+         <!-- Commented Reset Button out.... -->
          <!-- <button class="btn btn-sm btn-secondary text-light mt-3 mb-3" type="reset">Cancel</button> -->
          </form>
 </div>
