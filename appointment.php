@@ -78,7 +78,8 @@ if(isset($_POST['sub2'])){
   <label for="time">Time: </label>
   <input type="time" name="time" id="time">
 
-  <input class="btn-info text-light rounded" type="submit" name="sub2" id="sub2" value="Submit">
+  <button class="w-100 btn btn-sm btn-info text-light mt-1 mb-1" id="sub2" name="sub2" type="submit" value="Submit">Submit</button>
+  <button class="w-100 btn btn-sm btn-secondary text-light mt-1 mb-1" type="reset">Cancel</button>
 </form>
 </div>
 

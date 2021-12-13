@@ -108,6 +108,7 @@
 </div>
 
 <button class="w-100 btn btn-lg btn-info text-light" type="submit" id="sub" value="Submit" name='sub'>Register</button>
+<button class="w-100 btn btn-sm btn-secondary text-light mt-1 mb-1" type="reset">Cancel</button>
 
 </form>
 <p class="mt-3 fw-normal text-center">Have an account? <a class="text-info" href="login.php">Log In</a></p>

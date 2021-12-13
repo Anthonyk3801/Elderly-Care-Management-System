@@ -47,6 +47,7 @@
             </div>
 
             <button class="w-100 btn btn-lg btn-info text-light" name="login" id="login" type="submit">Sign in</button>
+            <button class="w-100 btn btn-sm btn-secondary text-light mt-1 mb-1" type="reset">Cancel</button>
 
           </form>
 

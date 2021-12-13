@@ -54,7 +54,8 @@ if(isset($_SESSION['level'])){
   <input type="date" id="admissionDate" name="admissionDate">
   <br>
   <br>
-  <input class="btn-info text-light rounded" type="submit" id="sub2" value="Submit">
+  <button class="w-100 btn btn-sm btn-info text-light mt-1 mb-1" id="sub2" type="submit" value="Submit">Submit</button>
+  <button class="w-100 btn btn-sm btn-secondary text-light mt-1 mb-1" type="reset">Cancel</button>
 </form>
 </div>
 
