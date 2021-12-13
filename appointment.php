@@ -6,6 +6,30 @@ if(isset($_SESSION['level'])){
 };
 */
 include 'db_connection.php';
+
+//$date = date('Y-m-d');
+
+if(isset($_POST['sub1'])){
+  $sql="SELECT * FROM Patient WHERE patientID = $_POST[patientID] AND approval=1";
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc();
+
+  $sql = "SELECT * FROM Roster WHERE date='$_POST[date]'";
+  $result = $conn->query($sql);
+  $res = $result->fetch_assoc();
+
+  $sql = "SELECT * FROM Employee WHERE employeeID = $res[doctorID]";
+  $result = $conn->query($sql);
+  $doc = $result->fetch_assoc();
+
+}
+if(isset($_POST['sub2'])){
+  echo $_POST['patientID'] . "<br>";
+  echo $_POST['date'] . "<br>";
+  echo $_POST['docID'] . "<br>";
+  echo $_POST['time'] . "<br>";
+
+}
 ?>
 
 <?php //TEMPLATES
@@ -25,40 +49,36 @@ include 'db_connection.php';
 <hr>
 
 <div class="mb-5 mt-5 text-center">
-<form action="patientInformation.php" method="POST">
+<form action="appointment.php" method="POST">
   <label for="patientID">Patient ID: </label>
-  <input type="text" id="patientID" name="patientID" minlength="5" maxlength="5">
-  <input class="btn-info text-light rounded" type="submit" id="sub1" value="Submit">
-</form>
+  <input type="text" id="patientID" name="patientID" minlength="5" maxlength="5" value=<?php if(isset($_POST['sub1'])) echo $_POST['patientID'];?>>
+  <br>
+  <br>
+  <label for="date">Date: </label>
+  <input type="date" id="date" name="date" value=<?php if(isset($_POST['sub1'])) echo $_POST['date'];?>>
+  <br>
+  <input class="btn-info text-light rounded" type="submit" name="sub1" id="sub1" value="Submit">
 </div>
 
 <hr>
 
 <!-- NEED TO WORK ON THIS FORM BELOW -->
 <div class="mb-5 mt-5 text-start">
-<form action="#" method="POST">
   <label for="patientName">Patient Name: </label>
-  <input readonly type="text" id="patientName" name="patientName">
-  <br>
-  <br>
-
-  <label for="date">Date: </label>
-  <input type="date" id="date" name="date">
+  <input readonly type="text" id="patientName" name="patientName" value=<?php if(isset($_POST['sub1'])) echo $row['fName'] . "_" . $row['lName'];?>>
   <br>
   <br>
 
   <label for="doctor">Doctor: </label>
-  <select id="doctor" name="doctor">
-      <option value="nothing"> --- </option>
-      <option value="1"> 1 </option>
-      <option value="2"> 2 </option>
-      <option value="3"> 3 </option>
-      <option value="4"> 4 </option>
-  </select>
-  <br>
-  <br>
+  <input readonly type="text" id="doctorName" name="doctorName" value=<?php if(isset($_POST['sub1'])) echo $doc['fName'] . "_" . $doc['lName'];?>>
+  <input type="number" name="docID" id="docID" hidden value=<?php if(isset($_POST['sub1'])) echo $res['doctorID'];?>>
 
-  <input class="btn-info text-light rounded" type="submit" id="sub2" value="Submit">
+  <br>
+  <br>
+  <label for="time">Time: </label>
+  <input type="time" name="time" id="time">
+
+  <input class="btn-info text-light rounded" type="submit" name="sub2" id="sub2" value="Submit">
 </form>
 </div>
 

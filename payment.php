@@ -25,8 +25,15 @@ if(isset($_POST['update'])){
         $date2 = new DateTime($lastDate);
         $interval = $date1->diff($date2);
         $dues += (10 * $interval->days);
+        $dues += (15 * $interval->m);
 
-        //Working on getting the dues to show the medications then updating Patients Table
+        $sql = "UPDATE Patient SET totalDues = $dues, lastUpdate = '$date' WHERE patientID = $_POST[patient]";
+        $result = $conn->query($sql);
+        if ($conn->query($sql) === TRUE) {
+            //echo "Updated";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
     }
 
 }
@@ -40,7 +47,7 @@ if(isset($_POST['submit'])){
     if($new >= 0){
         $sql = "UPDATE Patient SET totalDues = $new WHERE patientID = $_POST[patient]";
         if ($conn->query($sql) === TRUE) {
-            echo "Updated";
+            //echo "Updated";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
