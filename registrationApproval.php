@@ -69,16 +69,15 @@ $eresult = $conn->query($sql);
     //include 'templates/footer.html';
 ?>
   <!-- <link rel="stylesheet" href="CSS/patientStyles.css"> -->
-  
-
-  <h1>Registration Approval</h1>
-  <hr>
-  <br>
   <head>
     <link rel="stylesheet" href="CSS/registrationApproval.css">
   </head>
+
+  <h1 class="text-center">Registration Approval</h1>
+  <hr>
+  <div class="mb-3 mt-5">
         <form action="registrationApproval.php" id="form1" method="POST">
-        <table>
+        <table class="text-center">
                 <tr>
                   <th>Name</th>
                   <th>Role</th>
@@ -92,8 +91,8 @@ $eresult = $conn->query($sql);
                     echo "<td>" . $res['fName'] . " " . $res['lName'] . "</td>";
                     echo "<td>Patient</td>";
                     ?>
-                    <td class="center"><button class="button" type="submit" name="accept" form="form1" id="accept" value="<?php echo $res['email'] . ' Patient'?>">&#10004;</button>
-                    <button class="button" type="submit" name="decline" form="form1" id="decline" value="<?php echo $res['email'] . ' Patient'?>">X</button></td>
+                    <td class="center"><button class="button bg-dark" type="submit" name="accept" form="form1" id="accept" value="<?php echo $res['email'] . ' Patient'?>">✅</button>
+                    <button class="button bg-dark" type="submit" name="decline" form="form1" id="decline" value="<?php echo $res['email'] . ' Patient'?>">❌</button></td>
                     <?php
                 }
                 while($res = mysqli_fetch_array($fresult)) {
@@ -101,8 +100,8 @@ $eresult = $conn->query($sql);
                     echo "<td>" . $res['fName'] . " " . $res['lName'] . "</td>";
                     echo "<td>Family Member</td>";
                     ?>
-                    <td class="center"><button class="button" type="submit" name="accept" form="form1" id="accept" value="<?php echo $res['email'] . ' FamilyMember'?>">&#10004;</button>
-                    <button class="button" type="submit" name="decline" form="form1" id="decline" value="<?php echo $res['email'] . ' FamilyMember'?>">X</button></td>
+                    <td class="center"><button class="button bg-dark" type="submit" name="accept" form="form1" id="accept" value="<?php echo $res['email'] . ' FamilyMember'?>">✅</button>
+                    <button class="button bg-dark" type="submit" name="decline" form="form1" id="decline" value="<?php echo $res['email'] . ' FamilyMember'?>">❌</button></td>
                     <?php
                 }
                 while($res = mysqli_fetch_array($eresult)) {
@@ -110,13 +109,17 @@ $eresult = $conn->query($sql);
                     echo "<td>" . $res['fName'] . " " . $res['lName'] . "</td>";
                     echo "<td>" . $res['role'] . "</td>";
                     ?>
-                    <td class="center"><button class="button" type="submit" name="accept" form="form1" id="accept" value="<?php echo $res['email'] . ' Employee'?>">&#10004;</button>
-                    <button class="button" type="submit" name="decline" form="form1" id="decline" value="<?php echo $res['email'] . ' Employee'?>">X</button></td>
+                    <td class="center"><button class="button bg-dark" type="submit" name="accept" form="form1" id="accept" value="<?php echo $res['email'] . ' Employee'?>">✅</button>
+                    <button class="button bg-dark" type="submit" name="decline" form="form1" id="decline" value="<?php echo $res['email'] . ' Employee'?>">❌</button></td>
                     <?php
                 }
                 ?>
+
          </table>
+         <!-- Commented Reset Button out... -->
+         <!-- <button class="btn btn-sm btn-secondary text-light mt-3 mb-3" type="reset">Cancel</button> -->
          </form>
+</div>
 
 <?php // TEMPLATES
 include 'templates/end-main-content.html';
