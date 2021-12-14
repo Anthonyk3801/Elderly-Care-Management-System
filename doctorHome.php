@@ -6,6 +6,8 @@ if(isset($_SESSION['level'])){
 };
 if($_GET['error'] == 2) echo "You are not authorized for that page";
 */
+include 'db_connection.php';
+$date = date('Y-m-d');
 ?>
 
 <?php //TEMPLATES
@@ -28,6 +30,96 @@ if($_GET['error'] == 2) echo "You are not authorized for that page";
   <!-- This button below will have Different values... -->
   <button class="w-100 btn btn-sm btn-info text-light mt-5 mb-5" type="submit" value="search" name="search" id="search">Submit</button>
 </div>
+
+<head>
+  <link rel="stylesheet" href="CSS/doctorHomeStyle.css">
+</head>
+
+<form action="doctorHome.php" method="POST">
+  <input type="submit" value="Old Appointment" name="search">
+</form>
+
+<?php
+if(isset($_POST['search'])){
+$search = $_POST['search'];
+$sql = "SELECT *, Patient.fName, Patient.lName
+FROM DoctorAppointments
+INNER JOIN Patient
+WHERE Patient.patientID = DoctorAppointments.patientID AND date < '$date'";
+$result = $conn->query($sql);
+$res = $result->fetch_assoc();
+?>
+
+<table>
+
+            <th> </th>
+            <th>Patient Name</th>
+            <th>Date</th>
+            <th>Comment</th>
+            <th>Morning Med </th>
+            <th>Afternoon Med</th>
+            <th>Night Med</th>
+
+        </tr>
+
+<?php
+    while($res = mysqli_fetch_array($result)) {
+    echo "<tr>";
+    ?>
+    <td><form method="get" action="patientDoctor.php">
+    <button type="submit">Continue</button>
+</form></td>
+    <?php
+    echo "<td>".$res['fName']. " " .$res['lName']."</td>";
+     if(isset($res['date'])){
+        echo "<td> Appointment Date: " . $res['date'] . " </td>";
+    }else{
+        echo "<td> No Appointment </td>";
+    }
+    echo "<td>".$res['comment']."</td>";
+    echo "<td>".$res['morningMed']."</td>";
+    echo "<td>".$res['lunchMed']."</td>";
+    echo "<td>".$res['nightMed']."</td>";
+
+  }
+}
+?>
+</table>
+
+
+<form action="doctorHome.php" method="POST">
+  <input type="submit" value="New Appointment" name="submit">
+</form>
+
+<?php
+if(isset($_POST['submit'])){
+$submit = $_POST['submit'];
+$sql = "SELECT *, Patient.fName, Patient.lName
+FROM DoctorAppointments
+INNER JOIN Patient
+WHERE Patient.patientID = DoctorAppointments.patientID AND date >= '$date'";
+$result = $conn->query($sql);
+
+?>
+<table>
+
+            <th>Patient Name</th>
+            <th>Date</th>
+
+        </tr>
+<?php
+    while($res = mysqli_fetch_array($result)) {
+    echo "<tr>";
+    echo "<td>".$res['fName']. " " .$res['lName']."</td>";
+    if(isset($res['date'])){
+       echo "<td> Appointment Date: " . $res['date'] . " </td>";
+   }else{
+       echo "<td> No Appointment </td>";
+   }
+  }
+}
+?>
+</table>
 
 <?php // TEMPLATES
   include 'templates/end-main-content.html';

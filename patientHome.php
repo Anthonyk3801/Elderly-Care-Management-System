@@ -71,7 +71,7 @@ $result = $conn->query($sql);
 $res = $result->fetch_assoc();
 $cnt = mysqli_num_rows($result);
 if ( 0 === $cnt ) {
-echo "<p style='color:red;'>Wrong PatientID or Family Code</p>";
+echo "<p style='color:red;'>Wrong PatientID or Patient Name</p>";
 }else {
 $sql = "SELECT *
 FROM Patient
