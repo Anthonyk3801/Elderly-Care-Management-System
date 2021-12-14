@@ -62,26 +62,31 @@ include 'db_connection.php';
     //include 'templates/footer.html';
 ?>
 <!-- <link rel="stylesheet" href="CSS/patientStyles.css"> -->
-
-<h1>Family Member’s Home</h1>
-<hr>
-<br>
 <head>
     <link rel="stylesheet" href="CSS/familyMemberHome.css">
 </head>
+
+<h1 class="text-center pb-5">Family Member’s Home</h1>
+<hr>
+
+<div class="mt-5 mb-5 text-dark text-center p-5">
         <form action="familyMemberHome.php" method="post">
             <label for="familyCode">Family Code: </label>
-            <input type="number" name="familyCode" id="familyCode" max=999 required value=<?php echo (isset($_POST['search'])) ? $_POST['familyCode']:"";?>>
+            <input class="text-center" type="number" name="familyCode" id="familyCode" max=999 required value=<?php echo (isset($_POST['search'])) ? $_POST['familyCode']:"";?>>
 
             <label for="patientID">Patient ID: </label>
-            <input type="number" name="patientID" id="patientID" max=99999 required value=<?php echo (isset($_POST['search'])) ? $_POST['patientID']:"";?>>
+            <input class="text-center" type="number" name="patientID" id="patientID" max=99999 required value=<?php echo (isset($_POST['search'])) ? $_POST['patientID']:"";?>>
 
             <label for="date">Date: </label>
-            <input type="date" name="date" id="date" required value=<?php if(isset($_POST['search'])) echo $_POST['date'];?>>
+            <input class="text-end" type="date" name="date" id="date" required value=<?php if(isset($_POST['search'])) echo $_POST['date'];?>>
 
-            <input type="submit" name="search" id="search" value="SEARCH">
+            <button class="btn btn-sm btn-info text-light mt-0 mb-1" type="submit" name="search" id="search" value="SEARCH">Search</button>
+            <button class="btn btn-sm btn-secondary text-light mt-0 mb-1" type="reset">Cancel</button>
+
         </form>
+</div>
 
+<div class="mt-5 mb-5 text-dark text-center">
         <table>
           <tr>
             <th>Patient Name</th>
@@ -141,6 +146,7 @@ include 'db_connection.php';
                 };
                 ?>
          </table>
+</div>
 
 <?php // TEMPLATES
 include 'templates/end-main-content.html';
