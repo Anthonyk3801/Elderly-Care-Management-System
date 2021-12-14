@@ -25,6 +25,10 @@ include 'db_connection.php';
 <h1 class="text-center">Patient's Home</h1>
 <hr>
 
+<head>
+  <link rel="stylesheet" href="CSS/patientHomeStyle.css">
+</head>
+
 <?php
 $sql = "SELECT patientID, fName, lName
 FROM Patient";
