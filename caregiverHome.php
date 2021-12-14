@@ -78,13 +78,14 @@ $sql="Select * FROM PatientChecklist
     //include 'templates/footer.html';
 ?>
 <!-- <link rel="stylesheet" href="CSS/patientStyles.css"> -->
-
-<h1>Caregiver's Home</h1>
-<hr>
-<br>
 <head>
     <link rel="stylesheet" href="CSS/caregiver.css">
 </head>
+
+<h1 class="text-center">Caregiver's Home</h1>
+<hr>
+<div class="mt-5 mb-5 text-dark text-center">
+  <h2 class="text-start mt-5 text-info">List of Patients duty today</h2>
         <form action="caregiverHome.php" id="form1" method="post">
           <table>
             <tr>
@@ -180,7 +181,13 @@ $sql="Select * FROM PatientChecklist
             }
             ?>
      </table>
+
+     <!-- Change value/id of the button below -->
+     <button class="w-25 btn btn-sm btn-info text-light mt-5 mb-1" type="submit" value="Submit">Submit</button>
+     <button class="w-25 btn btn-sm btn-secondary text-light mt-5 mb-1" type="reset">Cancel</button>
+
      </form>
+</div>
 
 <?php // TEMPLATES
 include 'templates/end-main-content.html';
