@@ -82,63 +82,61 @@ if(isset($_POST['option'])){
     //include 'templates/footer.html';
 ?>
   <!-- <link rel="stylesheet" href="CSS/patientStyles.css"> -->
-
-  <h1>Patients</h1>
-  <hr>
-  <br>
   <head>
     <link rel="stylesheet" href="CSS/patient.css">
   </head>
+
+  <h1 class="text-center">Patients</h1>
+  <hr>
+
+  <div class="mb-1 mt-5 text-center text-dark">
         <form action="patient.php" method="POST">
             <label for="option">Search Option: </label>
             <select name="option" id="option">
-
             <option value="id">Patient ID</option>
             <option value="name">Patient Name</option>
             <option value="dob">Patient DOB</option>
             <option value="admission">Patient Admission Date</option>
             </select>
-
-
+            <br>
             <label for="search">Patient Search:</label>
             <input type="text" name="search" id="search" required>
-
-            <input type="submit" id="enter" value="Submit">
+            <br>
+            <button class="w-25 btn btn-sm btn-info text-light mt-2 mb-1" type="submit" id="enter" value="Submit">Submit</button>
         </form>
-
-        <p>Format dates: YYYY-MM-DD</p>
 
         <form action="patient.php" method="POST">
-            <input type="submit" id="cancel" value="All Patients">
+          <button class="w-25 btn btn-sm btn-info text-light mt-0 mb-3" type="submit" id="cancel" value="All Patients">All Patients</button>
         </form>
+        <p class="bg-light text-info text-start">Format dates: YYYY-MM-DD</p>
+  </div>
+<hr>
+  <div class="text-center text-dark">
+    <table>
+      <th>Patient ID</th>
+      <th>Name </th>
+      <th>Date of Birth </th>
+      <th>Admission Date</th>
+      <th>Emergency Contact</th>
+      <th>Contact Number</th>
+      <th>Contact Relation</th>
 
+      <?php
 
-        <table>
+       while($res = mysqli_fetch_array($result)) {
+         echo "<tr>";
+         echo "<td>".$res['patientID']."</td>";
+         echo "<td>".$res['fName']. " " .$res['lName']."</td>";
+         echo "<td>".$res['DOB']."</td>";
+         echo "<td>".$res['admissionDate']."</td>";
+         echo "<td>".$res['emergencyContactName']."</td>";
+         echo "<td>".$res['emergencyContactNumber']."</td>";
+         echo "<td>".$res['emergencyContactRelation']."</td>";
+       }
 
-                    <th>Patient ID</th>
-                    <th>Name </th>
-                    <th>Date of Birth </th>
-                    <th>Admission Date</th>
-                    <th>Emergency Contact</th>
-                    <th>Contact Number</th>
-                    <th>Contact Relation</th>
-
-                </tr>
-                <?php
-
-                while($res = mysqli_fetch_array($result)) {
-                    echo "<tr>";
-                    echo "<td>".$res['patientID']."</td>";
-                    echo "<td>".$res['fName']. " " .$res['lName']."</td>";
-                    echo "<td>".$res['DOB']."</td>";
-                    echo "<td>".$res['admissionDate']."</td>";
-                    echo "<td>".$res['emergencyContactName']."</td>";
-                    echo "<td>".$res['emergencyContactNumber']."</td>";
-                    echo "<td>".$res['emergencyContactRelation']."</td>";
-
-                }
-                ?>
-         </table>
+       ?>
+     </table>
+</div>
 
 <?php // TEMPLATES
 include 'templates/end-main-content.html';

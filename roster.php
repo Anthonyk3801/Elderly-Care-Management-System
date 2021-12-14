@@ -20,14 +20,18 @@ include 'db_connection.php';
 ?>
   <!-- <link rel="stylesheet" href="CSS/rosterStyle.css"> -->
 
-<h1>Roster</h1>
+<h1 class="text-center">Roster</h1>
 <hr>
-<br>
 
+<div class="mt-5 mb-5 text-dark text-center">
 <form action="roster.php" method="POST" id="rosterForm">
-    Date: <input type="date" name="date" id="date"><br>
-    <input type="submit" value="search" name="search" id="search">
+    <label for="date">Date </label>
+    <br>
+    <input class="text-end" type="date" name="date" id="date">
+    <br>
+    <button class="w-100 btn btn-sm btn-info text-light mt-2 mb-1" type="submit" value="search" name="search" id="search">Submit</button>
 </form>
+</div>
 
 <?php
 if(isset($_POST['search'])){

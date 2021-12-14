@@ -31,19 +31,22 @@ $caregiverName = 0;
     //include 'templates/footer.html';
 ?>
 <!-- <link rel="stylesheet" href="CSS/patientStyles.css"> -->
-
-<h1>Admin’s Report</h1>
-<hr>
-<br>
 <head>
     <link rel="stylesheet" href="CSS/adminReport.css">
 </head>
+
+<h1 class="text-center pb-5">Admin’s Report</h1>
+<hr>
+<div class="mt-5 mb-5 text-dark text-end">
         <form action="adminReport.php" method="post">
             <label for="date">Date: </label>
-            <input type="date" name="date" id="date" value=<?php if(isset($_POST['search'])) echo $_POST['date'];?>>
-            <input type="submit" name="search" id="search" value="SEARCH">
+            <input class="text-end" type="date" name="date" id="date" value=<?php if(isset($_POST['search'])) echo $_POST['date'];?>>
+            <button class="btn btn-sm btn-info text-light mt-0 mb-1" type="submit" name="search" id="search" value="SEARCH">Search</button>
         </form>
+</div>
 
+<div class="mt-5 mb-5 text-dark text-center">
+<h2 class="text-start text-info mb-4">Missed Patient Activity</h2>
         <table>
           <tr>
             <th class="name">Patient Name</th>
@@ -149,6 +152,7 @@ $caregiverName = 0;
             ?>
 
         </table>
+</div>
 
 <?php // TEMPLATES
 include 'templates/end-main-content.html';

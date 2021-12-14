@@ -22,11 +22,17 @@ if(isset($_SESSION['level'])){
 ?>
 <!-- <link rel="stylesheet" href="CSS/patientDoctorStyle.css"> -->
 
+<h1 class="text-center">Patient of Doctor</h1>
+<hr>
+
+<div class="mt-5 mb-5 text-dark">
 <form action="patientDoctor.php" method="POST">
-  Date: <input type="date" name="search"><br>
-  <input type="submit" value="search" id="search">
+  <label for="search">Date: </label>
+  <input class="text-end" type="date" name="search"><br>
+  <button class="w-100 btn btn-sm btn-info text-light mt-4" type="submit" value="search" id="search">Search</button>
 </form>
-<button onclick="test()" id="newPerscription">New Perscription</button>
+
+<button class="w-100 btn btn-sm btn-info text-light mt-4" onclick="test()" id="newPerscription">New Prescription</button>
 <form action="patientDoctor.php" method="POST">
 <div id="hide">
 <table>
@@ -41,18 +47,19 @@ if(isset($_SESSION['level'])){
   </tr>
   <tr>
     <td><input type="number" name="patientID" id="patientID"></td>
-    <td><input type="date" name="date" id="date"></td>
-    <td><input type="time" name="time" id="time"></td>
+    <td><input class="text-end" type="date" name="date" id="date"></td>
+    <td><input class="text-end" type="time" name="time" id="time"></td>
     <td><input type="text" name="comment" id="comment"></td>
     <td><input type="text" name="morningMed" id="morningMed"></td>
     <td><input type="text" name="lunchMed" id="lunchMed"></td>
     <td><input type="text" name="nightMed" id="nightMed"></td>
   </tr>
 </table>
-<input type="submit" value="submit" id="submit">
+<button class="w-100 btn btn-sm btn-info text-light mt-4 mb-1" type="submit" name="create" id="create" value="CREATE">Submit</button>
+<button class="w-100 btn btn-sm btn-secondary text-light mt-1 mb-1" type="reset">Cancel</button>
 </form>
 </div>
-
+</div>
 <script>
 function test() {
   let x = document.getElementById("hide");
