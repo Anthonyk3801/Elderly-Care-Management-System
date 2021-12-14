@@ -61,14 +61,17 @@ if(isset($_POST['submit'])){
     //include 'templates/footer.html';
 ?>
 
-<h1>Payments</h1>
+<h1 class="text-center pb-5">Payment</h1>
 <hr>
-<br>
 
+<div class="mt-5 mb-5 text-dark text-center">
 <form action="payment.php" method="post">
     <label for="patient">Patient ID: </label>
-    <input type="number" name="patient" id="patient" required value=<?php if(isset($_POST['update']) || isset($_POST['submit'])) echo $_POST['patient'];?>>
-    <input type="submit" name="update" id="update" value="UPDATE">
+    <input class="text-center" type="number" name="patient" id="patient" required value=<?php if(isset($_POST['update']) || isset($_POST['submit'])) echo $_POST['patient'];?>>
+    <button class="btn btn-sm btn-info text-light mt-0 mb-1" type="submit" name="update" id="update" value="UPDATE">Update</button>
+    <button class="btn btn-sm btn-secondary text-light mt-0 mb-1" type="reset">Cancel</button>
+
+<div class="mt-3 mb-3 bg-light text-info rounded text-center">
 <?php
     if(isset($_POST['patient'])){
         $sql="SELECT * FROM Patient WHERE patientID = $_POST[patient] AND approval = 1";
@@ -76,18 +79,31 @@ if(isset($_POST['submit'])){
         $row = $result->fetch_assoc();
         echo "<p>Patient Name: " . $row['fName'] . " " . $row['lName'] . "</p>";
         echo "<p>Amount Due: $" . $row['totalDues'] . "</p>";
-
     }
     ?>
+</div>
+
+  <div class="text-center">
     <label for="payment">New Payment: </label>
-    <input type="number" name="payment" id="payment">
+    <input class="text-center" type="number" name="payment" id="payment">
     <?php
         if($new < 0){
             echo "<p style='color:red'>Payment will not be proccessed due to over payment</p>";
         }
     ?>
-    <input type="submit" name="submit" id="submit" value="SUBMIT">
+
+    <button class="btn btn-sm btn-info text-light mt-0 mb-1" type="submit" name="submit" id="submit" value="SUBMIT">Submit</button>
+ </div>
 </form>
+</div>
+
+<div class="mt-5 mb-5 text-light bg-info w-50 text-start rounded">
+  <ul>
+    <li>$10 for every day.</li>
+    <li>$50 for every appointment.</li>
+    <li>$5 for every medicine/month.</li>
+  </ul>
+</div>
 
 <?php // TEMPLATES
 include 'templates/end-main-content.html';
