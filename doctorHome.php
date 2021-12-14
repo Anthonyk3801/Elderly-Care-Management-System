@@ -21,9 +21,13 @@ if($_GET['error'] == 2) echo "You are not authorized for that page";
     //include 'templates/footer.html';
 ?>
 
-<h1>Doctor's Home</h1>
+<h1 class="text-center">Doctor's Home</h1>
 <hr>
-<br>
+
+<div class="mt-5 mb-5 text-dark text-center">
+  <!-- This button below will have Different values... -->
+  <button class="w-100 btn btn-sm btn-info text-light mt-5 mb-5" type="submit" value="search" name="search" id="search">Submit</button>
+</div>
 
 <?php // TEMPLATES
   include 'templates/end-main-content.html';
