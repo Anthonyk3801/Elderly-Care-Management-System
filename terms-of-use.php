@@ -1,4 +1,7 @@
-<?php //TEMPLATES
+<?php
+session_start();
+
+//TEMPLATES
     include 'templates/header.html';
 
     switch($_SESSION['level']) {

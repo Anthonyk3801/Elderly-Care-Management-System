@@ -4,30 +4,31 @@
 
     $result = $conn->query($sql);
 
-    /*session_start();
+    session_start();
+    //if user is logged in then transfer to corresponding page depending on their role,
+    //this way we prevent loggedin userto acces login/register page.
     if(isset($_SESSION['level'])){
     header('location:extras/transfer.php?error=2');
     }else{
     session_destroy();
     }
-    */
 
     function rannum($length) {
       $result = '';
-  
+
       for($i = 0; $i < $length; $i++) {
           $result .= mt_rand(0, 9);
       }
-  
+
       return $result;
   }
   $date = date('Y-m-d');
   $newID = (int)rannum(5);
-  
+
   if(isset($_POST['sub'])){
-  
+
     if($_POST['role'] == 'Patient'){
-  
+
       $sql = "INSERT INTO Patient (fName, lName, email, phone, password, DOB, familyCode, emergencyContactName,
                                   emergencyContactNumber, emergencyContactRelation, patientID, groupID,
                                   admissionDate, approval, totalDues,lastUpdate)
@@ -38,10 +39,10 @@
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
-  
-  
+
+
     }elseif($_POST['role'] == 'FamilyMember'){
-  
+
       $sql = "INSERT INTO FamilyMember (fName, lName, email, phone, password, familyCode,DOB, approval)
         VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', $_POST[familyCode], '$_POST[DOB]', 0)";
         if ($conn->query($sql) === TRUE) {
@@ -49,9 +50,9 @@
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
-  
+
     }else{
-  
+
       $sql = "INSERT INTO Employee (fName, lName, email, phone, password, DOB, employeeID, role,
                                       salary, approval)
         VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', $newID, '$_POST[role]',
@@ -62,7 +63,7 @@
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }
     }
-  
+
   }
 ?>
 

@@ -13,31 +13,45 @@ if(isset($_SESSION['level'])){
 
 <?php //TEMPLATES
     include 'templates/header.html';
-    include 'templates/alert-message-before-login.html';
-    include 'templates/home-nav-bar.html';
-    //include 'templates/admin-nav-bar.php';
-    //include 'templates/supervisor-nav-bar.html';
-    //include 'templates/doctor-nav-bar.html';
-    //include 'templates/caregiver-nav-bar.html';
-    //include 'templates/patient-nav-bar.html';
-    //include 'templates/familyMember-nav-bar.html';
 
-    //include 'templates/main-grid-content-1column.html';
-    include 'templates/main-grid-content-2columns.html';
-
-    //include 'templates/side-bar.html';
-    //include 'templates/side-bar-hidden.html';
-    include 'templates/admin-side-bar.html';
-    //include 'templates/supervisor-side-bar.html';
-    //include 'templates/doctor-side-bar.html';
-    //include 'templates/caregiver-side-bar.html';
-    //include 'templates/patient-side-bar.html';
-    //include 'templates/familyMember-side-bar.html';
+    switch($_SESSION['level']) {
+      case '1':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/admin-side-bar.html';
+        break;
+      case '2':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/supervisor-side-bar.html';
+        break;
+      case '3':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/doctor-side-bar.html';
+        break;
+      case '4':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/caregiver-side-bar.html';
+        break;
+      case '5':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/patient-side-bar.html';
+        break;
+      case '6':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/familyMember-side-bar.html';
+        break;
+      default:
+        include 'templates/alert-message-before-login.html';
+        include 'templates/home-nav-bar.html';
+        include 'templates/main-grid-content-1column.html';
+    }
 
     include 'templates/main-content.html';
-
-    //include 'templates/end-main-content.html';
-    //include 'templates/footer.html';
 ?>
 
         <h1 class="text-center pb-5">ElderlyCare Management System</h1>

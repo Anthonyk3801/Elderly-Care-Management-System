@@ -3,26 +3,59 @@
     if(isset($_GET['error'])){
         echo "<P>Incorrect Email or Password.</p>";
     }
-    /*session_start();
+
+    session_start();
+    //if user is logged in then transfer to corresponding page depending on their role,
+    //this way we prevent loggedin userto acces login/register page.
     if(isset($_SESSION['level'])){
     header('location:extras/transfer.php?error=2');
     }else{
     session_destroy();
     }
-    */
+
 ?>
 
 <?php //TEMPLATES
     include 'templates/header.html';
-    include 'templates/alert-message-before-login.html';
-    include 'templates/nav-bar.html';
-    include 'templates/main-grid-content-1column.html';
-    //include 'templates/main-grid-content-2columns.html';
-    //include 'templates/side-bar.html';
-    //include 'templates/side-bar-hidden.html';
+
+    switch($_SESSION['level']) {
+      case '1':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/admin-side-bar.html';
+        break;
+      case '2':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/supervisor-side-bar.html';
+        break;
+      case '3':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/doctor-side-bar.html';
+        break;
+      case '4':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/caregiver-side-bar.html';
+        break;
+      case '5':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/patient-side-bar.html';
+        break;
+      case '6':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/familyMember-side-bar.html';
+        break;
+      default:
+        include 'templates/alert-message-before-login.html';
+        include 'templates/home-nav-bar.html';
+        include 'templates/main-grid-content-1column.html';
+    }
+
     include 'templates/main-content.html';
-    //include 'templates/end-main-content.html';
-    //include 'templates/footer.html';
 ?>
 
         <main class="form-signing">
