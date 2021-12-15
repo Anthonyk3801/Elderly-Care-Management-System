@@ -72,13 +72,12 @@ if(isset($_POST['create'])){
     include 'templates/main-content.html';
 ?>
 
-<h1 class="text-center">Doctor's Home</h1>
-<hr>
-
-
 <head>
   <link rel="stylesheet" href="CSS/doctorHomeStyle.css">
 </head>
+
+<h1 class="text-center">Doctor's Home</h1>
+<hr>
 
 <form action="doctorHome.php" method="POST">
   <input type="submit" value="Old Appointment" name="search">
@@ -96,15 +95,14 @@ $res = $result->fetch_assoc();
 ?>
 
 <table>
-
-            <th>Patient Name</th>
-            <th>Date</th>
-            <th>Comment</th>
-            <th>Morning Med </th>
-            <th>Afternoon Med</th>
-            <th>Night Med</th>
-
-        </tr>
+  <tr>
+    <th>Patient Name</th>
+    <th>Date</th>
+    <th>Comment</th>
+    <th>Morning Med </th>
+    <th>Afternoon Med</th>
+    <th>Night Med</th>
+  </tr>
 
 <form method="post" action="patientDoctor.php">
 <?php
@@ -142,6 +140,7 @@ WHERE Patient.patientID = DoctorAppointments.patientID AND date >= '$date'";
 $result = $conn->query($sql);
 
 ?>
+
 <table>
             <th> </th>
             <th>Patient Name</th>
