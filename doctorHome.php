@@ -8,6 +8,25 @@ if($_GET['error'] == 2) echo "You are not authorized for that page";
 */
 include 'db_connection.php';
 $date = date('Y-m-d');
+
+if(isset($_POST['create'])){
+    //$doctor = $_POST['doctorID'];
+    $patient = $_POST['patientID'];
+    $date = $_POST['date'];
+    $comment = $_POST['comment'];
+    $morningMed = $_POST['morningMed'];
+    $lunchMed = $_POST['lunchMed'];
+    $nightMed = $_POST['nightMed'];
+    //$attendance = $_POST['attendance'];
+  $sql = "UPDATE DoctorAppointments
+  SET comment = '$_POST[comment]', morningMed = '$_POST[morningMed]', lunchMed = '$_POST[lunchMed]', nightMed = '$_POST[nightMed]', attendance = 1
+  WHERE patientID = $_POST[patientID] AND date = '$_POST[date]'";
+  if ($conn->query($sql) === TRUE) {
+    echo "File Updated";
+  } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+};
 ?>
 
 <?php //TEMPLATES
@@ -56,10 +75,6 @@ $date = date('Y-m-d');
 <h1 class="text-center">Doctor's Home</h1>
 <hr>
 
-<div class="mt-5 mb-5 text-dark text-center">
-  <!-- This button below will have Different values... -->
-  <button class="w-100 btn btn-sm btn-info text-light mt-5 mb-5" type="submit" value="search" name="search" id="search">Submit</button>
-</div>
 
 <head>
   <link rel="stylesheet" href="CSS/doctorHomeStyle.css">
@@ -82,7 +97,6 @@ $res = $result->fetch_assoc();
 
 <table>
 
-            <th> </th>
             <th>Patient Name</th>
             <th>Date</th>
             <th>Comment</th>
@@ -92,14 +106,10 @@ $res = $result->fetch_assoc();
 
         </tr>
 
+<form method="post" action="patientDoctor.php">
 <?php
     while($res = mysqli_fetch_array($result)) {
     echo "<tr>";
-    ?>
-    <td><form method="get" action="patientDoctor.php">
-    <button type="submit">Continue</button>
-</form></td>
-    <?php
     echo "<td>".$res['fName']. " " .$res['lName']."</td>";
      if(isset($res['date'])){
         echo "<td> Appointment Date: " . $res['date'] . " </td>";
@@ -114,6 +124,7 @@ $res = $result->fetch_assoc();
   }
 }
 ?>
+</form>
 </table>
 
 
@@ -132,15 +143,19 @@ $result = $conn->query($sql);
 
 ?>
 <table>
-
+            <th> </th>
             <th>Patient Name</th>
             <th>Date</th>
 
         </tr>
+
+<form method="post" action="patientDoctor.php">
 <?php
     while($res = mysqli_fetch_array($result)) {
-    echo "<tr>";
-    echo "<td>".$res['fName']. " " .$res['lName']."</td>";
+    echo "<tr>";?>
+    <td>
+    <button type="submit" id="con" name="con" value="<?php echo $res['patientID']." " .$res['date']; ?>">Continue</button></td>
+    <?php echo "<td>".$res['fName']. " " .$res['lName']."</td>";
     if(isset($res['date'])){
        echo "<td> Appointment Date: " . $res['date'] . " </td>";
    }else{
@@ -149,6 +164,7 @@ $result = $conn->query($sql);
   }
 }
 ?>
+</form>
 </table>
 
 <?php // TEMPLATES
