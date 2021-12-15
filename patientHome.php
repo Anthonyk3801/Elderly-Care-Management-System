@@ -52,12 +52,12 @@ include 'db_connection.php';
     include 'templates/main-content.html';
 ?>
 
-<h1 class="text-center">Patient's Home</h1>
-<hr>
-
 <head>
   <link rel="stylesheet" href="CSS/patientHomeStyle.css">
 </head>
+
+<h1 class="text-center">Patient's Home</h1>
+<hr>
 
 <?php
 $sql = "SELECT patientID, fName, lName

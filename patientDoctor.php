@@ -51,13 +51,12 @@ if(isset($_SESSION['level'])){
     include 'templates/main-content.html';
 ?>
 <!-- <link rel="stylesheet" href="CSS/patientDoctorStyle.css"> -->
-
-<h1 class="text-center">Patient of Doctor</h1>
-<hr>
-
 <head>
   <link rel="stylesheet" href="CSS/patientDoctorStyle.css">
 </head>
+
+<h1 class="text-center">Patient of Doctor</h1>
+<hr>
 
 <div class="mt-5 mb-5 text-dark">
 <form action="patientDoctor.php" method="POST">
