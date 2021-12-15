@@ -1,6 +1,6 @@
 <?php
 include 'db_connection.php';
-
+session_start();
 /*session_start();
 if(isset($_SESSION['level'])){
   header('location:extras/transfer.php?error=2');
@@ -66,19 +66,35 @@ if(isset($_POST['sub'])){
 <?php //TEMPLATES
     include 'templates/header.html';
     include 'templates/alert-message-before-login.html';
-    include 'templates/nav-bar.html';
+    include 'templates/home-nav-bar.html';
+    //include 'templates/admin-nav-bar.php';
+    //include 'templates/supervisor-nav-bar.html';
+    //include 'templates/doctor-nav-bar.html';
+    //include 'templates/caregiver-nav-bar.html';
+    //include 'templates/patient-nav-bar.html';
+    //include 'templates/familyMember-nav-bar.html';
+
     //include 'templates/main-grid-content-1column.html';
     include 'templates/main-grid-content-2columns.html';
-    include 'templates/side-bar.html';
+
+    //include 'templates/side-bar.html';
     //include 'templates/side-bar-hidden.html';
+    include 'templates/admin-side-bar.html';
+    //include 'templates/supervisor-side-bar.html';
+    //include 'templates/doctor-side-bar.html';
+    //include 'templates/caregiver-side-bar.html';
+    //include 'templates/patient-side-bar.html';
+    //include 'templates/familyMember-side-bar.html';
+
     include 'templates/main-content.html';
+
     //include 'templates/end-main-content.html';
     //include 'templates/footer.html';
 ?>
 
-        <h1>ElderlyCare Management System</h1>
-        <br>
+        <h1 class="text-center pb-5">ElderlyCare Management System</h1>
         <hr>
+
         <ul class="nav col-13 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="patientInformation.php" class="nav-link px-2 text-dark">patientInformation</a></li>
           <li><a href="appointment.php" class="nav-link px-2 text-dark">appointment</a></li>
@@ -99,6 +115,7 @@ if(isset($_POST['sub'])){
         <hr>
         <br>
 
+      <div class="mb-5 text-start p-5">
         <h2>General info</h1>
           <br>
         <h3>CSET 220 - Software Project III</h2>
@@ -135,6 +152,7 @@ if(isset($_POST['sub'])){
           <li>Jody Winters</li>
           <li>Julio Pochet Edmead</li>
         </ul>
+    </div>
 
 <?php // TEMPLATES
   include 'templates/end-main-content.html';

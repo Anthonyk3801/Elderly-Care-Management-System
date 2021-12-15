@@ -20,15 +20,45 @@ $caregiverName = 0;
 
 <?php //TEMPLATES
     include 'templates/header.html';
-    //include 'templates/alert-message-before-login.html';
-    include 'templates/nav-bar.html';
-    include 'templates/main-grid-content-1column.html';
-    //include 'templates/main-grid-content-2columns.html';
-    //include 'templates/side-bar.html';
-    //include 'templates/side-bar-hidden.html';
+
+    switch($_SESSION['level']) {
+      case '1':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/admin-side-bar.html';
+        break;
+      case '2':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/supervisor-side-bar.html';
+        break;
+      case '3':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/doctor-side-bar.html';
+        break;
+      case '4':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/caregiver-side-bar.html';
+        break;
+      case '5':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/patient-side-bar.html';
+        break;
+      case '6':
+        include 'templates/main-nav-bar.php';
+        include 'templates/main-grid-content-2columns.html';
+        include 'templates/familyMember-side-bar.html';
+        break;
+      default:
+        include 'templates/alert-message-before-login.html';
+        include 'templates/home-nav-bar.html';
+        include 'templates/main-grid-content-1column.html';
+    }
+
     include 'templates/main-content.html';
-    //include 'templates/end-main-content.html';
-    //include 'templates/footer.html';
 ?>
 <!-- <link rel="stylesheet" href="CSS/patientStyles.css"> -->
 <head>
@@ -45,7 +75,7 @@ $caregiverName = 0;
         </form>
 </div>
 
-<div class="mt-5 mb-5 text-dark text-center">
+<div class="mt-5 mb-5 text-dark text-center pb-5">
 <h2 class="text-start text-info mb-4">Missed Patient Activity</h2>
         <table>
           <tr>

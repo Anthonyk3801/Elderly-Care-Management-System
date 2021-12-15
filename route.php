@@ -15,7 +15,6 @@ elseif(!isset($_SESSION['level'])){
 */
 /**/
 
-
 if(isset($_POST['login'])){
     $email = strtolower($_POST['email']);
     $check = false;
@@ -120,7 +119,7 @@ if(isset($_POST['login'])){
     }elseif($_SESSION['level'] == 6){
         header('location:familyMemberHome.php');
     }
-
+    
 }
 
 ?>
