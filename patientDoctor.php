@@ -25,6 +25,10 @@ if(isset($_SESSION['level'])){
 <h1 class="text-center">Patient of Doctor</h1>
 <hr>
 
+<head>
+  <link rel="stylesheet" href="CSS/patientDoctorStyle.css">
+</head>
+
 <div class="mt-5 mb-5 text-dark">
 <form action="patientDoctor.php" method="POST">
   <label for="search">Date: </label>

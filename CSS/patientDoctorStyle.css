@@ -1,5 +1,12 @@
-table, th, td{
-  border: 2px solid black;
+table, th, td {
+    border: 1px solid black;
+    margin-top: 15px;
+}
+
+th, td {
+    height: 20px;
+    width: 150px;
+    padding: 15px;
 }
 
 table{
@@ -14,10 +21,6 @@ table{
 td{
   text-align: center;
   vertical-align: middle;
-}
-
-th, td{
-  padding: 15px;
 }
 
 #newPerscription{
