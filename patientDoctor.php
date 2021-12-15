@@ -6,6 +6,7 @@ if(isset($_SESSION['level'])){
 };
 */
   include 'db_connection.php';
+  $date = date('Y-m-d');
 ?>
 
 <?php //TEMPLATES
@@ -58,34 +59,35 @@ if(isset($_SESSION['level'])){
 <h1 class="text-center">Patient of Doctor</h1>
 <hr>
 
-<div class="mt-5 mb-5 text-dark">
-<form action="patientDoctor.php" method="POST">
-  <label for="search">Date: </label>
-  <input class="text-end" type="date" name="search"><br>
-  <button class="w-100 btn btn-sm btn-info text-light mt-4" type="submit" value="search" id="search">Search</button>
-</form>
+<?php
+if(isset($_POST['con'])){
+$arr = explode(" ", $_POST['con']);
+$pID = $arr[0];
+$d = $arr[1];
+}
+?>
 
-<button class="w-100 btn btn-sm btn-info text-light mt-4" onclick="test()" id="newPerscription">New Prescription</button>
-<form action="patientDoctor.php" method="POST">
+<div class="mt-5 mb-5 text-dark">
+
+<button class="w-100 btn btn-sm btn-info text-light mt-4" onclick="test()" id="newPerscription" <?php if($d != $date) echo 'disabled'; ?>>New Prescription</button>
+<form action="doctorHome.php" method="POST">
 <div id="hide">
 <table>
   <tr>
   <th>Patient ID</th>
   <th>Date</th>
-  <th>Time</th>
   <th>Comment</th>
   <th>Morning Med</th>
   <th>Afternoon Med</th>
   <th>Night Med</th>
   </tr>
   <tr>
-    <td><input type="number" name="patientID" id="patientID"></td>
-    <td><input class="text-end" type="date" name="date" id="date"></td>
-    <td><input class="text-end" type="time" name="time" id="time"></td>
-    <td><input type="text" name="comment" id="comment"></td>
-    <td><input type="text" name="morningMed" id="morningMed"></td>
-    <td><input type="text" name="lunchMed" id="lunchMed"></td>
-    <td><input type="text" name="nightMed" id="nightMed"></td>
+    <td><input type="number" name="patientID" required id="patientID" readonly value="<?php echo $pID; ?>"></td>
+    <td><input class="text-end" type="date" name="date" id="date" readonly value="<?php echo $d; ?>"></td>
+    <td><input type="text" name="comment" required id="comment"></td>
+    <td><input type="text" name="morningMed" required id="morningMed"></td>
+    <td><input type="text" name="lunchMed" required id="lunchMed"></td>
+    <td><input type="text" name="nightMed" required id="nightMed"></td>
   </tr>
 </table>
 <button class="w-100 btn btn-sm btn-info text-light mt-4 mb-1" type="submit" name="create" id="create" value="CREATE">Submit</button>
@@ -105,11 +107,9 @@ function test() {
 </script>
 
 <?php
-if(isset($_POST['search'])){
-$search = $_POST['search'];
 $sql = "SELECT *
 FROM DoctorAppointments
-WHERE date = '$search'";
+WHERE date = '$d' AND patientID = $pID";
 $result = $conn->query($sql);
 $res = $result->fetch_assoc();
 
@@ -151,28 +151,6 @@ echo "<table width='30%' border=0>";
     }
 
 echo "</table>";
-}
-
-if(isset($_POST['date'])){
-    //$doctor = $_POST['doctorID'];
-    $patient = $_POST['patientID'];
-    $date = $_POST['date'];
-    $time = $_POST['time'];
-    $comment = $_POST['comment'];
-    $morningMed = $_POST['morningMed'];
-    $lunchMed = $_POST['lunchMed'];
-    $nightMed = $_POST['nightMed'];
-    //$attendance = $_POST['attendance'];
-};
-if (isset($_POST['date'])){
-  $sql = "UPDATE DoctorAppointments
-  SET comment = '$_POST[comment]', morningMed = '$_POST[morningMed]', nightMed = '$_POST[nightMed]', attendance = 1
-  WHERE patientID = $_POST[patientID] AND date = '$_POST[date]'";
-  if ($conn->query($sql) === TRUE) {
-  } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
-  }
-}
 ?>
 
 <?php // TEMPLATES
