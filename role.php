@@ -5,6 +5,26 @@ session_start();
 //    if($_SESSION['level'] != 1) header('location:extras/transfer.php');
 //};
 include 'db_connection.php';
+$error = 0;
+if(isset($_POST['role'])){
+  $sql = "SELECT * FROM Roles WHERE role = '$_POST[role]'";
+  $result = $conn->query($sql);
+  $row = $result->fetch_assoc();
+
+  if ($row["role"] == $_POST['role']) {
+      $error = 1;
+  } else {
+      $sql = "INSERT INTO Roles (role, accessLevel)
+      VALUES ('$_POST[role]', $_POST[level])";
+
+      if ($conn->query($sql) === TRUE) {
+        $error = 2;
+          //echo "New record created successfully";
+      } else {
+          echo "Error: " . $sql . "<br>" . $conn->error;
+      }
+  }
+};
 ?>
 
 <?php //TEMPLATES
@@ -69,6 +89,9 @@ include 'db_connection.php';
             <br>
             <input type="text" name="level" id="accessLevel" maxlength="1" placeholder="1-6" required>
             <br>
+            <?php if($error == 1) echo "<p style='color:red'>The Role Already Exists</p>";
+              if($error == 2) echo "<p>Role Created!</p>";
+            ?>
 
             <button class="w-75 btn btn-sm btn-info text-light mt-5 mb-1" type="submit" value="Submit">Submit</button>
             <button class="w-75 btn btn-sm btn-secondary text-light mt-1 mb-1" type="reset">Cancel</button>
@@ -84,22 +107,5 @@ include 'templates/footer.html';
 
 
 <?php
-if(isset($_POST['role'])){
-    $sql = "SELECT * FROM Roles WHERE role = '$_POST[role]'";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
 
-    if ($row["role"] == $_POST['role']) {
-        echo '<p>That role has already been set.</p>';
-    } else {
-        $sql = "INSERT INTO Roles (role, accessLevel)
-        VALUES ('$_POST[role]', $_POST[level])";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-    }
-};
 ?>

@@ -117,11 +117,9 @@ if(isset($_POST['empID'])){
 if (isset($_POST['empID'])){
   $sql = "UPDATE Employee
   SET salary=$_POST[salary]
-  WHERE employeeID = $_POST[empID] AND NOT role = 'SuperVisor'";
-  if ($conn->query($sql) === TRUE) {
-  } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
-  }
+  WHERE employeeID = $_POST[empID]";
+} else if($res['role'] === 'SuperVisor'){
+  echo "<p style='color:red;'>Supervisor can't update salary</p>";
 }
 ?>
 

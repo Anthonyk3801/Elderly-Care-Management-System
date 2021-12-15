@@ -9,58 +9,6 @@ if(isset($_SESSION['level'])){
 }
 */
 
-function rannum($length) {
-    $result = '';
-
-    for($i = 0; $i < $length; $i++) {
-        $result .= mt_rand(0, 9);
-    }
-
-    return $result;
-}
-$date = date('Y-m-d');
-$newID = (int)rannum(5);
-
-if(isset($_POST['sub'])){
-
-  if($_POST['role2'] == 'Patient'){
-
-    $sql = "INSERT INTO Patient (fName, lName, email, phone, password, DOB, familyCode, emergencyContactName,
-                                emergencyContactNum, emergencyContactRelation, patientID, groupID,
-                                admissionDate, approval, totalDues,lastUpdate)
-      VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', $_POST[familyCode], '$_POST[emergencyContactName]',
-      '$_POST[emergencyContactNum]', '$_POST[emergencyContactRelation]', $newID, '0', '1900-01-01', 0, 0,'$date')";
-      if ($conn->query($sql) === TRUE) {
-          echo "Registeration Complete!";
-      } else {
-          echo "Error: " . $sql . "<br>" . $conn->error;
-      }
-
-
-  }elseif($_POST['role2'] == 'Family Member'){
-
-    $sql = "INSERT INTO Family_Members (fName, lName, email, phone, password, DOB, approval)
-      VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', 0)";
-      if ($conn->query($sql) === TRUE) {
-          echo "Registeration Complete!";
-      } else {
-          echo "Error: " . $sql . "<br>" . $conn->error;
-      }
-
-  }else{
-
-    $sql = "INSERT INTO Employees (fName, lName, email, phone, password, DOB, employeeID, role,
-                                    salary, approval)
-      VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[phone]', '$_POST[password]', '$_POST[DOB]', $newID, '$_POST[role2]',
-              0, 0)";
-              if ($conn->query($sql) === TRUE) {
-                  echo "Registeration Complete!";
-              } else {
-                  echo "Error: " . $sql . "<br>" . $conn->error;
-              }
-  }
-
-}
 ?>
 
 <?php //TEMPLATES
