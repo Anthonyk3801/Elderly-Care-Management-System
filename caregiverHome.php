@@ -212,10 +212,10 @@ $sql="Select * FROM PatientChecklist
             ?>
      </table>
 
-     <!-- Change value/id of the button below -->
+     <!-- Change value/id of the button below
      <button class="w-25 btn btn-sm btn-info text-light mt-5 mb-1" type="submit" value="Submit">Submit</button>
      <button class="w-25 btn btn-sm btn-secondary text-light mt-5 mb-1" type="reset">Cancel</button>
-
+        -->
      </form>
 </div>
 
