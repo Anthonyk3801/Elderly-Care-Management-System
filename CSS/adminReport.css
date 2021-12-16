@@ -8,6 +8,7 @@ th {
     width: 80px;
 }
 
+/* Notes for the team: The pe-3 class assigned to <th> overides this .name class */
 .name {
     width: 100px;
 }
