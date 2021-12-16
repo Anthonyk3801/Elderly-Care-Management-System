@@ -105,7 +105,7 @@ $eresult = $conn->query($sql);
 
   <h1 class="text-center">Registration Approval</h1>
   <hr>
-  <div class="mb-3 mt-5">
+  <div class="m-5">
         <form action="registrationApproval.php" id="form1" method="POST">
         <table class="text-center">
                 <tr>

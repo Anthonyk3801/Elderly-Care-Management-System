@@ -97,13 +97,13 @@ if(isset($_POST['sub2'])){
 <div class="mb-5 mt-5 text-center">
 <form action="appointment.php" method="POST" id="form1">
   <label for="patientID">Patient ID: </label>
-  <input type="text" id="patientID" name="patientID" minlength="5" maxlength="5" required value=<?php if(isset($_POST['sub1']) || isset($_POST['sub2'])) echo $_POST['patientID'];?>>
+  <input class="text-center" type="text" id="patientID" name="patientID" minlength="5" maxlength="5" required value=<?php if(isset($_POST['sub1']) || isset($_POST['sub2'])) echo $_POST['patientID'];?>>
   <br>
   <br>
   <label for="date">Date: </label>
-  <input type="date" id="date" name="date" required value=<?php if(isset($_POST['sub1']) || isset($_POST['sub2'])) echo $_POST['date'];?>>
+  <input class="text-center" type="date" id="date" name="date" required value=<?php if(isset($_POST['sub1']) || isset($_POST['sub2'])) echo $_POST['date'];?>>
   <br>
-  <input class="btn-info text-light rounded" type="submit" name="sub1" id="sub1" value="Submit">
+  <button class="btn btn-sm btn-info text-light mt-3 mb-1" type="submit" name="sub1" id="sub1" value="Submit">Submit</button>
 </div>
 
 <hr>
@@ -117,20 +117,20 @@ if($error == 3) echo "<p>Appointment Created</p>";
 <!-- NEED TO WORK ON THIS FORM BELOW -->
 <div class="mb-5 mt-5 text-start">
   <label for="patientName">Patient Name: </label>
-  <input readonly type="text" id="patientName" name="patientName" value=<?php if(isset($_POST['sub1'])) echo $row['fName'] . "_" . $row['lName'];if(isset($_POST['sub2'])) echo $_POST['patientName'];?>>
+  <input readonly class="text-center" type="text" id="patientName" name="patientName" value=<?php if(isset($_POST['sub1'])) echo $row['fName'] . "_" . $row['lName'];if(isset($_POST['sub2'])) echo $_POST['patientName'];?>>
   <br>
   <br>
 
   <label for="doctor">Doctor: </label>
-  <input readonly type="text" id="doctorName" name="doctorName" value=<?php if(isset($_POST['sub1'])) echo $doc['fName'] . "_" . $doc['lName']; if(isset($_POST['sub2'])) echo $_POST['doctorName'];?>>
+  <input readonly class="text-center" type="text" id="doctorName" name="doctorName" value=<?php if(isset($_POST['sub1'])) echo $doc['fName'] . "_" . $doc['lName']; if(isset($_POST['sub2'])) echo $_POST['doctorName'];?>>
   <input type="number" name="docID" id="docID" hidden value=<?php if(isset($_POST['sub1'])) echo $res['doctorID'];if(isset($_POST['sub2'])) echo $_POST['docID'];?>>
 
   <br>
   <br>
   <label for="time">Time: </label>
-  <input type="time" name="time" id="time">
+  <input class="text-end" type="time" name="time" id="time">
 
-  <button class="w-100 btn btn-sm btn-info text-light mt-1 mb-1" id="sub2" name="sub2" type="submit" value="Submit" form="form1">Submit</button>
+  <button class="w-100 btn btn-sm btn-info text-light mt-5 mb-1" id="sub2" name="sub2" type="submit" value="Submit" form="form1">Submit</button>
   <button class="w-100 btn btn-sm btn-secondary text-light mt-1 mb-1" type="input" form="form1">Cancel</button>
 </form>
 </div>

@@ -117,11 +117,11 @@ if($check == 2) echo "All Fields Must Be Different";
 if($created == 1) echo "New Roster was Created!";
 ?>
 
-<div class="mt-5 mb-5 text-dark text-center">
+<div class="m-5 p-5 text-dark text-center">
 <form action="newRoster.php" method="post">
   <label for="date">Date: </label>
   <input class="text-end" type="date" name="date" id="date" value=<?php if(isset($_POST['ok']) || isset($_POST['create']))echo $_POST['date'];?>>
-  <button class="btn btn-sm btn-info text-light mt-1 mb-1" type="submit" name="ok" id="ok" value="OK">OK</button>
+  <button class="btn btn-sm btn-info text-light mt-1 mb-2" type="submit" name="ok" id="ok" value="OK">OK</button>
 
   <div class="formcss">
     <label for="supervisor">Supervisor: </label>
@@ -211,8 +211,8 @@ if($created == 1) echo "New Roster was Created!";
     </select>
   </div>
 
-  <button class="w-100 btn btn-sm btn-info text-light mt-4" type="submit" name="create" id="create" value="CREATE">CREATE</button>
-  <button class="w-100 btn btn-sm btn-secondary text-light mt-1" type="reset">Cancel</button>
+  <button class="w-50 btn btn-sm btn-info text-light mt-4" type="submit" name="create" id="create" value="CREATE">Create</button>
+  <button class="w-50 btn btn-sm btn-secondary text-light mt-1" type="reset">Cancel</button>
 
 </form>
 </div>

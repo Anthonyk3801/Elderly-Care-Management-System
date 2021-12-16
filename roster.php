@@ -53,13 +53,13 @@ include 'db_connection.php';
 <h1 class="text-center">Roster</h1>
 <hr>
 
-<div class="mt-5 mb-5 text-dark text-center">
+<div class="mt-5 mb-5 text-dark text-center m-5 p-5">
 <form action="roster.php" method="POST" id="rosterForm">
     <label for="date">Date </label>
     <br>
     <input class="text-end" type="date" name="date" id="date">
-    <br>
-    <button class="w-100 btn btn-sm btn-info text-light mt-2 mb-1" type="submit" value="search" name="search" id="search">Submit</button>
+
+    <button class="w-50 btn btn-sm btn-info text-light mt-3 mb-1" type="submit" value="search" name="search" id="search">Submit</button>
 </form>
 </div>
 

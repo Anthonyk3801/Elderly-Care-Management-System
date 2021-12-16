@@ -122,7 +122,7 @@ if(isset($_POST['option'])){
   <div class="mb-1 mt-5 text-center text-dark">
         <form action="patient.php" method="POST">
             <label for="option">Search Option: </label>
-            <select name="option" id="option">
+            <select class="text-center" name="option" id="option">
             <option value="id">Patient ID</option>
             <option value="name">Patient Name</option>
             <option value="dob">Patient DOB</option>
@@ -130,7 +130,7 @@ if(isset($_POST['option'])){
             </select>
             <br>
             <label for="search">Patient Search:</label>
-            <input type="text" name="search" id="search" required>
+            <input class="text-center" type="text" name="search" id="search" required>
             <br>
             <button class="w-25 btn btn-sm btn-info text-light mt-2 mb-1" type="submit" id="enter" value="Submit">Submit</button>
         </form>
@@ -141,7 +141,7 @@ if(isset($_POST['option'])){
         <p class="bg-light text-info text-start">Format dates: YYYY-MM-DD</p>
   </div>
 <hr>
-  <div class="text-center text-dark">
+  <div class="text-center text-dark mt-5 mb-5 p-5">
     <table>
       <th>Patient ID</th>
       <th>Name </th>

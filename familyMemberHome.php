@@ -99,8 +99,9 @@ include 'db_connection.php';
 <h1 class="text-center pb-5">Family Member’s Home</h1>
 <hr>
 
-<div class="mt-5 mb-5 text-dark text-center p-5">
+<div class="m-5 p-5 text-dark text-center p-5">
         <form action="familyMemberHome.php" method="post">
+
             <label for="familyCode">Family Code: </label>
             <input class="text-center" type="number" name="familyCode" id="familyCode" max=999 required value=<?php echo (isset($_POST['search'])) ? $_POST['familyCode']:"";?>>
 
@@ -116,19 +117,19 @@ include 'db_connection.php';
         </form>
 </div>
 
-<div class="mt-5 mb-5 text-dark text-center">
+<div class="m-5 p-5 text-dark text-center">
         <table>
           <tr>
-            <th>Patient Name</th>
-            <th>Doctor Name</th>
-            <th>Caregiver Name</th>
-            <th>Doctor Appointment</th>
-            <th>Breakfast</th>
-            <th>Morning Med</th>
-            <th>Lunch</th>
-            <th>Lunch Med</th>
-            <th>Dinner</th>
-            <th>Night Med</th>
+            <th class="p-3">Patient Name</th>
+            <th class="p-3">Doctor Name</th>
+            <th class="p-3">Caregiver Name</th>
+            <th class="p-3">Doctor Appointment</th>
+            <th class="p-3">Breakfast</th>
+            <th class="p-3">Morning Med</th>
+            <th class="p-3">Lunch</th>
+            <th class="p-3">Lunch Med</th>
+            <th class="p-3">Dinner</th>
+            <th class="p-3">Night Med</th>
           </tr>
 
                 <?php

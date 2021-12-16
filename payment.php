@@ -101,7 +101,7 @@ if(isset($_POST['submit'])){
 <h1 class="text-center pb-5">Payment</h1>
 <hr>
 
-<div class="mt-5 mb-5 text-dark text-center">
+<div class="m-5 p-5 text-dark text-center">
 <form action="payment.php" method="post">
     <label for="patient">Patient ID: </label>
     <input class="text-center" type="number" name="patient" id="patient" required value=<?php if(isset($_POST['update']) || isset($_POST['submit'])) echo $_POST['patient'];?>>
@@ -134,7 +134,7 @@ if(isset($_POST['submit'])){
 </form>
 </div>
 
-<div class="mt-5 mb-5 text-light bg-info w-50 text-start rounded">
+<div class="text-light bg-info w-50 text-start rounded">
   <ul>
     <li>$10 for every day.</li>
     <li>$50 for every appointment.</li>

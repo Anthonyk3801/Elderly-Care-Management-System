@@ -57,8 +57,9 @@ if(isset($_SESSION['level'])){
 <div class="mb-5 mt-5 text-center">
 <form action="patientInformation.php" method="POST">
   <label for="patientID">Patient ID: </label>
-  <input type="text" id="patientID" name="patientID" minlength="5" maxlength="5">
-  <input class="btn-info text-light rounded" type="submit" id="sub1" value="Submit">
+  <input class="text-center" type="text" id="patientID" name="patientID" minlength="5" maxlength="5">
+  <!--<input class="btn-info text-light rounded" type="submit" id="sub1" value="Submit">-->
+  <button class="btn btn-sm btn-info text-light mt-1 mb-2" type="submit" id="sub1" value="Submit">Submit</button>
 </form>
 </div>
 
@@ -67,11 +68,11 @@ if(isset($_SESSION['level'])){
 <div class="mb-5 mt-5 text-start">
 <form action="patient.php" method="POST">
   <label for="patientName">Patient Name: </label>
-  <input readonly type="text" id="patientName" name="patientName">
+  <input readonly class="text-center" type="text" id="patientName" name="patientName">
   <br>
   <br>
   <label for="groupID">Group: </label>
-  <select id="groupID" name="groupID">
+  <select class="text-center" id="groupID" name="groupID">
       <option value="nothing"> --- </option>
       <option value="1"> 1 </option>
       <option value="2"> 2 </option>
@@ -81,7 +82,7 @@ if(isset($_SESSION['level'])){
   <br>
   <br>
   <label for="admissionDate">Admission Date: </label>
-  <input type="date" id="admissionDate" name="admissionDate">
+  <input class="text-end" type="date" id="admissionDate" name="admissionDate">
   <br>
   <br>
   <button class="w-100 btn btn-sm btn-info text-light mt-1 mb-1" id="sub2" type="submit" value="Submit">Submit</button>

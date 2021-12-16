@@ -82,19 +82,19 @@ if(isset($_POST['role'])){
 
             <label for="role">New Role</label>
             <br>
-            <input type="text" name="role" id="role" required>
+            <input class="text-center" type="text" name="role" id="role" required>
             <br>
             <br>
             <label for="accessLevel">Access Level</label>
             <br>
-            <input type="text" name="level" id="accessLevel" maxlength="1" placeholder="1-6" required>
+            <input class="text-center" type="text" name="level" id="accessLevel" maxlength="1" placeholder="1-6" required>
             <br>
             <?php if($error == 1) echo "<p style='color:red'>The Role Already Exists</p>";
               if($error == 2) echo "<p>Role Created!</p>";
             ?>
 
-            <button class="w-75 btn btn-sm btn-info text-light mt-5 mb-1" type="submit" value="Submit">Submit</button>
-            <button class="w-75 btn btn-sm btn-secondary text-light mt-1 mb-1" type="reset">Cancel</button>
+            <button class="w-25 btn btn-sm btn-info text-light mt-5 mb-1" type="submit" value="Submit">Submit</button>
+            <button class="w-25 btn btn-sm btn-secondary text-light mt-5 mb-1" type="reset">Cancel</button>
 
         </form>
 

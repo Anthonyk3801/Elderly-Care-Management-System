@@ -65,7 +65,7 @@ $caregiverName = 0;
     <link rel="stylesheet" href="CSS/adminReport.css">
 </head>
 
-<h1 class="text-center pb-5">Admin’s Report</h1>
+<h1 class="text-center mb-5">Admin’s Report</h1>
 <hr>
 <div class="mt-5 mb-5 text-dark text-end">
         <form action="adminReport.php" method="post">
@@ -75,22 +75,22 @@ $caregiverName = 0;
         </form>
 </div>
 
-<div class="mt-5 mb-5 text-dark text-center pb-5">
+<div class="m-5 pb-5 text-dark text-center">
 <h2 class="text-start text-info mb-4">Missed Patient Activity</h2>
         <table>
           <tr>
             <th class="name">Patient Name</th>
-            <th>Patient ID</th>
-            <th class="name">Doctor Name</th>
-            <th class="name">Caregiver Name</th>
-            <th>Appointment Time</th>
-            <th>Attendend Appointment</th>
-            <th>Breakfast</th>
-            <th>Morning Med</th>
-            <th>Lunch</th>
-            <th>Lunch Med</th>
-            <th>Dinner</th>
-            <th>Night Med</th>
+            <th class="p-3">Patient ID</th>
+            <th class="name p-3">Doctor Name</th>
+            <th class="name p-3">Caregiver Name</th>
+            <th class="p-3">Appointment Time</th>
+            <th class="p-3">Attendend Appointment</th>
+            <th class="p-3">Breakfast</th>
+            <th class="p-3">Morning Med</th>
+            <th class="p-3">Lunch</th>
+            <th class="p-3">Lunch Med</th>
+            <th class="p-3">Dinner</th>
+            <th class="p-3">Night Med</th>
           </tr>
 
             <?php

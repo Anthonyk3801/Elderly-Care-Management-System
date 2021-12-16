@@ -57,26 +57,30 @@ include 'db_connection.php';
 <div class="mb-5 mt-5 text-center">
 <form action="employee.php" method="POST" id="form2">
     <label for="empID">Emp ID</label>
-    <input type="number" name="empID" id="empID" min="1">
+    <input class="text-center me-5" type="number" name="empID" id="empID" min="1">
+
     <label for="salary">New Salary</label>
-    <input type="number" name="salary" id="salary" min="1" />
+    <input class="text-center" type="number" name="salary" id="salary" min="1">
+
     <button class="w-50 btn btn-sm btn-info text-light mt-5 mb-1" type="submit" value="submit" id="submit">Submit</button>
     <button class="w-50 btn btn-sm btn-secondary text-light mt-1 mb-1" type="reset">Cancel</button>
 </form>
 </div>
+
 <hr>
+
 <div class="mb-5 mt-5 text-start">
 <form action="employee.php" method="POST" id="form1">
   <label for="search">Search: </label>
-  <input type="text" name="search"><br>
+  <input class="text-center" type="text" name="search"><br>
   <label for="column">Column: </label>
-  <select name="column">
+  <select class="text-center" name="column">
           <option value="employeeID">Emp ID</option>
 	        <option value="fName">Name</option>
 	        <option value="role">Role</option>
           <option value="salary">Salary</option>
 	        </select><br>
-  <button class="w-25 btn btn-sm btn-info text-light mt-5 mb-1" type="submit" value="search" id="search">Search</button>
+  <button class="w-25 btn btn-sm btn-info text-light mt-5 mb-1 ms-5" type="submit" value="search" id="search">Search</button>
 </form>
 </div>
 

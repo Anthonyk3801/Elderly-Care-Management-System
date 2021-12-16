@@ -74,22 +74,23 @@ $pat = $patID['patientID'];
 ?>
 
 <div class="mt-5 mb-5">
-
 <form action="patientHome.php" method="POST" id="patientForm">
 
   <label for="patientID">Patient ID:</label>
-  <input readonly type="number" name="patientID" id="patientID" required value='<?php echo $_SESSION['id'];?>' min="1"><br>
+  <input readonly class="text-center" type="number" name="patientID" id="patientID" required value='<?php echo $_SESSION['id'];?>' min="1">
+  <br><br>
 
   <label for="fName">Patient Name:</label>
-  <input readonly type="text" name="fName" id="fName" required value='<?php echo $_SESSION['fName']. " " . $_SESSION['lName'];?>'><br>
+  <input readonly class="text-center" type="text" name="fName" id="fName" required value='<?php echo $_SESSION['fName']. " " . $_SESSION['lName'];?>'>
+  <br><br>
 
   <label for="date">Date:</label>
-  <input type='date' name="date" id='date' value='<?php echo date('Y-m-d');?>'><br>
+  <input class="text-end" type='date' name="date" id='date' value='<?php echo date('Y-m-d');?>'>
+  <br><br>
 
-  <button class="w-100 btn btn-sm btn-info text-light mt-5 mb-1" type="submit" value="search" name="search" id="search">Submit</button>
+  <button class="w-100 btn btn-sm btn-info text-light mt-3 mb-1" type="submit" value="search" name="search" id="search">Submit</button>
 
 </form>
-
 </div>
 
 <?php
