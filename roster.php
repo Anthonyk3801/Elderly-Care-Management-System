@@ -53,16 +53,16 @@ include 'db_connection.php';
 <h1 class="text-center">Roster</h1>
 <hr>
 
-<div class="mt-5 mb-5 text-dark text-center m-5 p-5">
+<div class="m-5 text-center">
 <form action="roster.php" method="POST" id="rosterForm">
     <label for="date">Date </label>
-    <br>
     <input class="text-end" type="date" name="date" id="date">
 
-    <button class="w-50 btn btn-sm btn-info text-light mt-3 mb-1" type="submit" value="search" name="search" id="search">Submit</button>
+    <button class="btn btn-sm btn-info text-light mt-1 mb-2" type="submit" value="search" name="search" id="search">Submit</button>
 </form>
 </div>
 
+<div class="m-5 p-5 text-center">
 <?php
 if(isset($_POST['search'])){
 $sql = "SELECT *
@@ -122,8 +122,9 @@ $caregiver4 = $caregive['fName'] . " " . $caregive['lName'];
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }*/
-echo "<table width='30%' border=0>";
+echo "<table width='100%' border=1";
 
+  echo "<tr>";
   echo "<th>Date</th>";
   echo "<th>Supervisor</th>";
   echo "<th>Doctor</th>";
@@ -131,8 +132,7 @@ echo "<table width='30%' border=0>";
   echo "<th>Caregiver2</th>";
   echo "<th>Caregiver3</th>";
   echo "<th>Caregiver4</th>";
-
-        echo "</tr>";
+  echo "</tr>";
 
     echo "<tr>";
     echo "<td>".$res['date']."</td>";
@@ -142,11 +142,14 @@ echo "<table width='30%' border=0>";
     echo "<td>".$caregiver2."</td>";
     echo "<td>".$caregiver3."</td>";
     echo "<td>".$caregiver4."</td";
+    echo "</tr>";
 
 echo "</table>";
 }
 ?>
+</div>
 
+</div>
 <?php // TEMPLATES
   include 'templates/end-main-content.html';
   include 'templates/footer.html';

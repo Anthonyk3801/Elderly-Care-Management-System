@@ -1,3 +1,4 @@
+
 label{
   font-size: 1.4vw;
   margin-left: 20px;
@@ -15,4 +16,8 @@ label{
   cursor: pointer;
   width: 10%;
   font-size: 13px;
+}
+
+table, th, td {
+  border: 10px solid black;
 }

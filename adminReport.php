@@ -67,6 +67,7 @@ $caregiverName = 0;
 
 <h1 class="text-center mb-5">Admin’s Report</h1>
 <hr>
+
 <div class="mt-5 mb-5 text-dark text-end">
         <form action="adminReport.php" method="post">
             <label for="date">Date: </label>
@@ -75,22 +76,22 @@ $caregiverName = 0;
         </form>
 </div>
 
-<div class="m-5 pb-5 text-dark text-center">
+<div class="mb-5 pb-5 text-dark text-center">
 <h2 class="text-start text-info mb-4">Missed Patient Activity</h2>
         <table>
           <tr>
-            <th class="name">Patient Name</th>
-            <th class="p-3">Patient ID</th>
-            <th class="name p-3">Doctor Name</th>
-            <th class="name p-3">Caregiver Name</th>
-            <th class="p-3">Appointment Time</th>
-            <th class="p-3">Attendend Appointment</th>
-            <th class="p-3">Breakfast</th>
-            <th class="p-3">Morning Med</th>
-            <th class="p-3">Lunch</th>
-            <th class="p-3">Lunch Med</th>
-            <th class="p-3">Dinner</th>
-            <th class="p-3">Night Med</th>
+            <th class="p-2">Patient Name</th>
+            <th class="p-2">Patient ID</th>
+            <th class="p-2">Doctor Name</th>
+            <th class="p-2">Caregiver Name</th>
+            <th class="p-2">Appointment Time</th>
+            <th class="p-2">Attendend Appointment</th>
+            <th class="p-2">Breakfast</th>
+            <th class="p-2">Morning Med</th>
+            <th class="p-2">Lunch</th>
+            <th class="p-2">Lunch Med</th>
+            <th class="p-2">Dinner</th>
+            <th class="p-2">Night Med</th>
           </tr>
 
             <?php
