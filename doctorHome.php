@@ -79,9 +79,12 @@ if(isset($_POST['create'])){
 <h1 class="text-center">Doctor's Home</h1>
 <hr>
 
+<div class="mb-5 mt-5 text-center">
+
 <form action="doctorHome.php" method="POST">
-  <input type="submit" value="Old Appointment" name="search">
+  <button class="w-75 btn btn-sm btn-info text-light mt-4" type="submit" value="Old Appointment" name="search">Old Appointment</button>
 </form>
+
 
 <?php
 if(isset($_POST['search'])){
@@ -127,7 +130,7 @@ $res = $result->fetch_assoc();
 
 
 <form action="doctorHome.php" method="POST">
-  <input type="submit" value="New Appointment" name="submit">
+  <button class="w-75 btn btn-sm btn-info text-light mt-4" type="submit" value="New Appointment" name="submit">New Appointment</button>
 </form>
 
 <?php
@@ -165,7 +168,7 @@ $result = $conn->query($sql);
 ?>
 </form>
 </table>
-
+</div>
 <?php // TEMPLATES
   include 'templates/end-main-content.html';
   include 'templates/footer.html';

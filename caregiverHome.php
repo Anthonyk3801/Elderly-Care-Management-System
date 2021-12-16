@@ -114,18 +114,18 @@ $sql="Select * FROM PatientChecklist
 
 <h1 class="text-center">Caregiver's Home</h1>
 <hr>
-<div class="mt-5 mb-5 text-dark text-center">
+<div class="m-5 text-dark text-center">
   <h2 class="text-start mt-5 text-info">List of Patients duty today</h2>
         <form action="caregiverHome.php" id="form1" method="post">
           <table>
             <tr>
-              <th>Patient Name</th>
-              <th>Breakfast</th>
-              <th>Morning Med</th>
-              <th>Lunch</th>
-              <th>Lunch Med</th>
-              <th>Dinner</th>
-              <th>Night Med</th>
+              <th class="p-2">Patient Name</th>
+              <th class="p-2">Breakfast</th>
+              <th class="p-2">Morning Med</th>
+              <th class="p-2">Lunch</th>
+              <th class="p-2">Lunch Med</th>
+              <th class="p-2">Dinner</th>
+              <th class="p-2">Night Med</th>
             </tr>
             <?php
 
@@ -213,8 +213,8 @@ $sql="Select * FROM PatientChecklist
      </table>
 
      <!-- Change value/id of the button below -->
-     <button class="w-25 btn btn-sm btn-info text-light mt-5 mb-1" type="submit" value="Submit">Submit</button>
-     <button class="w-25 btn btn-sm btn-secondary text-light mt-5 mb-1" type="reset">Cancel</button>
+     <button class="p-2 w-25 btn btn-sm btn-info text-light mt-5 mb-1" type="submit" value="Submit">Submit</button>
+     <button class="p-2 w-25 btn btn-sm btn-secondary text-light mt-5 mb-1" type="reset">Cancel</button>
 
      </form>
 </div>

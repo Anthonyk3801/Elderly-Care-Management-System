@@ -67,7 +67,7 @@ $d = $arr[1];
 }
 ?>
 
-<div class="mt-5 mb-5 text-dark">
+<div class="m-5 p-5">
 
 <button class="w-100 btn btn-sm btn-info text-light mt-4" onclick="test()" id="newPerscription" <?php if($d != $date) echo 'disabled'; ?>>New Prescription</button>
 <form action="doctorHome.php" method="POST">
@@ -94,7 +94,8 @@ $d = $arr[1];
 <button class="w-100 btn btn-sm btn-secondary text-light mt-1 mb-1" type="reset">Cancel</button>
 </form>
 </div>
-</div>
+
+
 <script>
 function test() {
   let x = document.getElementById("hide");
@@ -152,6 +153,8 @@ echo "<table width='30%' border=0>";
 
 echo "</table>";
 ?>
+
+</div>
 
 <?php // TEMPLATES
   include 'templates/end-main-content.html';
